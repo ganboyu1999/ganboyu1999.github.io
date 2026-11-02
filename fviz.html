@@ -11,21 +11,57 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+<html><head><link rel="canonical" href="https://ganboyu1999.github.io/fviz.html"></head></html>
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://ganboyu1999.github.io/fviz.html">
 </head>
-<body id="top">
+<body id="top" class="detail-page">
   <a class="skip-link" href="#main">跳到正文</a>
-  <header><p class="site-name"><a href="index.html">Zhuocheng Han</a> · 项目梳理</p>
-    <nav aria-label="页面导航"><a href="index.html">返回主页</a><span aria-hidden="true"> / </span><a href="index.html#projects">全部项目</a><span aria-hidden="true"> / </span><a href="index.html#works">作品展示</a></nav>
-  </header>
-  <main id="main"><div class="project-intro"><h1>机器人可视化研发平台（FVIZ）</h1><p class="subtitle">在同一工作台连接数据、状态和场景，支撑机器人问题定位与开发联调。</p></div><section><h2>解决的问题</h2><ul>
+  <header class="detail-header"><p class="site-name"><a href="index.html">Zhuocheng Han</a> · 项目梳理</p>
+    </header>
+  <nav class="page-nav" aria-label="页面导航"><a href="index.html#projects">返回主页</a><a href="#outcomes">成果</a><a href="#contribution">个人贡献</a><a href="#design">技术方案</a><a href="#project-works">作品</a></nav><main id="main"><div class="project-intro">
+<h1>机器人可视化研发平台（FVIZ）</h1>
+<p class="subtitle">在同一工作台连接数据、状态和场景，支撑机器人问题定位与开发联调。</p>
+<p class="project-scope"><span>本人职责</span>可视化工作台、台架仿真与面板扩展开发</p>
+</div>
+<section id="outcomes" aria-labelledby="outcomes-title"><div class="section-heading"><h2 id="outcomes-title">落地成果</h2></div>
+<dl class="results">
+<div>
+<dt>数据接入类型</dt>
+<dd>4 类</dd>
+</div>
+<div>
+<dt>功能面板</dt>
+<dd>13 类</dd>
+</div>
+<div>
+<dt>仿真实机切换</dt>
+<dd>10 秒内</dd>
+</div>
+</dl></section><section id="problem" aria-labelledby="problem-title"><div class="section-heading"><h2 id="problem-title">解决的问题</h2></div>
+<ul>
 <li>机器人问题定位需要同时查看姿态、曲线、图像与消息，并关联不同来源和时间的数据。</li>
 <li>离线回放、实时观测与仿真联调分别承担不同任务，需要统一工具入口，同时明确数据与控制目标。</li>
 <li>不同团队需要不同的分析视图，固定工具难以持续满足运控、感知和二次开发的扩展需求。</li>
-</ul></section><section><h2>个人贡献</h2><ul>
-<li><strong>支撑跨团队联动定位问题：</strong>设计开发机器人可视化研发工作台，统一离线回放与实时观测，接入 MCAP、Parquet、运动学轨迹和实时流 <strong>4 类数据</strong>，实现 3D 状态、曲线、图像和消息联动分析，服务系统、感知、导航及运控团队。</li>
-<li><strong>降低二次开发联调对实机的依赖：</strong>实现机器人系统级台架仿真、场景编辑及仿真实机快速切换，为二开用户提供可视化开发与联调环境，仿真实机切换在 <strong>10 秒内</strong>完成。</li>
-<li><strong>支持团队扩展和复用研发工具：</strong>实现插件化面板架构和布局复用，支持二开用户自定义面板，已接入运控、感知、FK/IK 动作编辑等 <strong>13 类功能面板</strong>。</li>
-</ul></section><section><h2>关键设计</h2><h3>多源数据与联动分析</h3><p>接入 MCAP、Parquet、运动学轨迹和实时流，以多面板工作台组织 3D、曲线、图像与消息。离线数据通过回放时间线联动查看，按需要核对源时间、发布时间和记录时间。</p><h3>实时观测与仿真联调</h3><p>工作台连接机器人运行时，配合系统级台架仿真和场景编辑开展联调。实时观测显示当前状态，离线回看依赖录包；界面显示流切换与机器人运行模式切换分别处理。</p><h3>面板扩展与布局复用</h3><p>通过插件化面板、自定义视图和布局复用承接团队差异化需求。多工作区、多页面组织不同数据源与分析布局，减少重复搭建调试环境的操作。</p></section><section><h2>落地成果</h2><dl class="results"><div><dt>数据接入类型</dt><dd>4 类</dd></div><div><dt>功能面板</dt><dd>13 类</dd></div><div><dt>仿真实机切换</dt><dd>10 秒内</dd></div></dl></section><section><h2>技术边界</h2><p>实时观测与录包回放分别管理；曲线抽样适合观察趋势，核对原始消息精度需回到消息视图或原文件。离线动作预览只改变本地显示，实际执行与仿真控制由对应运行时处理。</p></section><section><h2>作品展示</h2><div class="detail-placeholder" role="note">演示视频与界面截图待补充</div><p class="section-note">多面板联动分析、台架仿真或动作编辑录屏。</p></section><p class="back-link"><a href="index.html#projects">← 返回项目梳理</a></p></main>
+</ul></section><section id="contribution" aria-labelledby="contribution-title"><div class="section-heading"><h2 id="contribution-title">个人贡献</h2></div>
+<ul>
+<li>
+<strong>支撑跨团队联动定位问题：</strong>设计开发机器人可视化研发工作台，统一离线回放与实时观测，接入 MCAP、Parquet、运动学轨迹和实时流 <strong>4 类数据</strong>，实现 3D 状态、曲线、图像和消息联动分析，服务系统、感知、导航及运控团队。</li>
+<li>
+<strong>降低二次开发联调对实机的依赖：</strong>实现机器人系统级台架仿真、场景编辑及仿真实机快速切换，为二开用户提供可视化开发与联调环境，仿真实机切换在 <strong>10 秒内</strong>完成。</li>
+<li>
+<strong>支持团队扩展和复用研发工具：</strong>实现插件化面板架构和布局复用，支持二开用户自定义面板，已接入运控、感知、FK/IK 动作编辑等 <strong>13 类功能面板</strong>。</li>
+</ul></section><section id="design" aria-labelledby="design-title"><div class="section-heading"><h2 id="design-title">关键设计</h2></div>
+<h3>多源数据与联动分析</h3>
+<p>接入 MCAP、Parquet、运动学轨迹和实时流，以多面板工作台组织 3D、曲线、图像与消息。离线数据通过回放时间线联动查看，按需要核对源时间、发布时间和记录时间。</p>
+<h3>实时观测与仿真联调</h3>
+<p>工作台连接机器人运行时，配合系统级台架仿真和场景编辑开展联调。实时观测显示当前状态，离线回看依赖录包；界面显示流切换与机器人运行模式切换分别处理。</p>
+<h3>面板扩展与布局复用</h3>
+<p>通过插件化面板、自定义视图和布局复用承接团队差异化需求。多工作区、多页面组织不同数据源与分析布局，减少重复搭建调试环境的操作。</p></section><section id="boundaries" aria-labelledby="boundaries-title"><div class="section-heading"><h2 id="boundaries-title">技术边界</h2></div>
+<p>实时观测与录包回放分别管理；曲线抽样适合观察趋势，核对原始消息精度需回到消息视图或原文件。离线动作预览只改变本地显示，实际执行与仿真控制由对应运行时处理。</p></section><section id="project-works" aria-labelledby="project-works-title"><div class="section-heading"><h2 id="project-works-title">作品展示</h2></div>
+<div class="detail-placeholder" role="note">演示视频与界面截图待补充</div>
+<p class="section-note">多面板联动分析、台架仿真或动作编辑录屏。</p></section><p class="back-link"><a href="index.html#projects">← 返回代表项目</a></p>
+<p class="case-contact">希望进一步了解项目职责与方案？<a href="mailto:hanzc1999@163.com">邮件联系 →</a></p></main>
   <footer><span>© 2026 Zhuocheng Han</span><a href="#top">返回顶部 ↑</a></footer>
 </body>
 </html>
