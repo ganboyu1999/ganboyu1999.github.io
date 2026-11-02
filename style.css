@@ -128,3 +128,7 @@ footer a { color: var(--muted); }
 @media (prefers-color-scheme: dark) { :root { --background: #151619; --surface: #1c1e22; --text: #d8dadd; --muted: #9da3ac; --rule: #2c3036; --link: #a0bbce; --soft: #191b1e; } ::selection { background: #36444e; color: #eef3f5; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print { :root { --background: #fff; --text: #111; --muted: #444; --rule: #bbb; --link: #111; --soft: #fff; } body { max-width: none; padding: 0; font-size: 11pt; } .page-nav,.skip-link,footer,.work-placeholder,.detail-placeholder,.hero-links { display: none; } main > section { margin-top: 24px; } h2,h3,h4 { break-after: avoid; } li { break-inside: avoid; } .experience-details > .details-content { display: block; content-visibility: visible; } .experience-details::details-content { display: block; content-visibility: visible; } .impact { margin: 16px 0; } .works-grid { display: block; } }
+
+/* Project details are attached to their corresponding employment contribution. */
+.experience-project-link { display: block; width: fit-content; margin-top: 5px; font-size: 12px; font-weight: 400; }
+.experience-summary > li[id] { scroll-margin-top: 84px; }
