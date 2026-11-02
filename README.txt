@@ -1,4 +1,4 @@
-HZ — Personal Homepage & Selected Projects
+Zhuocheng Han — Personal Homepage & Selected Projects
 
 A minimal personal homepage for robotics and autonomous driving.
 Static HTML and CSS; no build step, JavaScript, or runtime dependencies.
@@ -6,7 +6,7 @@ Static HTML and CSS; no build step, JavaScript, or runtime dependencies.
 Files:
 index.html — profile, selected projects, work experience, education, contact.
 style.css — responsive styles with automatic light/dark mode.
-favicon.svg — HZ icon.
+favicon.svg — ZH icon.
 .nojekyll — serve the static files directly on GitHub Pages.
 
 Preview: python3 -m http.server 8773
@@ -23,4 +23,4 @@ add a caption and accessible text, and retain the project-specific details.
 Add public source or documentation links only when a real public URL exists.
 
 Layout reference: https://ddod-jim.github.io/
-The public files omit the legal name, portrait, phone, and original resume.
+The homepage uses the owner’s chosen display name and omits the portrait, phone, and original resume.
