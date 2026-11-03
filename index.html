@@ -43,7 +43,7 @@
 <p>面向机器人二次开发与量产交付，建设统一开发接口、异常数据回流及可视化联调体系。</p>
 <ul class="experience-summary">
 <li id="development-framework">
-<strong>二次开发框架与通信中间件：</strong>主导框架设计与开发，统一数据访问、业务模块调用和运动控制接口，非业务代码量降低 <strong>90%</strong>，单模块适配投入由 <strong>3 人天降至 0.5 人天</strong>。<a class="experience-project-link" href="frs.html">查看项目细节 <span aria-hidden="true">↗</span></a>
+<strong>二次开发框架与通信中间件：</strong>主导框架建设，统一数据访问、业务能力调用与运动控制，支持业务模块复用、自研控制算法接入及实机/仿真联调。非业务代码量降低 <strong>90%</strong>，单模块适配投入由 <strong>3 人天降至 0.5 人天</strong>。<a class="experience-project-link" href="frs.html">查看项目细节 <span aria-hidden="true">↗</span></a>
 </li>
 <li id="data-observability">
 <strong>数据观测与异常取证：</strong>构建事件录制与数据回流链路，支持异常前后数据、日志及配置快照取证，累计回流事件 <strong>10 万+</strong>，接入 <strong>20+ 个筛选器</strong>。<a class="experience-project-link" href="fdi.html">查看项目细节 <span aria-hidden="true">↗</span></a>
@@ -55,12 +55,12 @@
 <details class="experience-details"><summary>展开完整工作贡献</summary><div class="details-content">
 <h4>二次开发框架与通信中间件</h4>
 <ul>
-<li>
-<strong>降低二次开发门槛：</strong>主导 二次开发框架设计，以 Python/C++ SDK 和 CLI 统一数据访问、业务模块调用及运动控制接口，将通信接入与运行管理从业务逻辑中抽离，非业务代码量降低 <strong>90%</strong>。</li>
-<li>
-<strong>提高模块复用与交付效率：</strong>设计 Atom 原子能力架构与 workflow 编排，统一模块生命周期和调用方式，实现进程隔离与断流保护；在 GR3/GRW 等项目量产交付中，单模块适配投入由 <strong>3 人天降至 0.5 人天</strong>。</li>
-<li>
-<strong>减少重复订阅和缓存占用：</strong>实现共享内存与有界缓存机制，让多个模块复用 DDS Reader 和 Topic 缓存，支持多进程只读访问及按需回收，内存使用效率提升 <strong>20%–30%</strong>。</li>
+<li><strong>降低二次开发门槛：</strong>主导框架设计与开发，统一机器人数据、业务能力及运动控制接口，将通信接入、运行管理和异常处理从业务逻辑中抽离，非业务代码量降低 <strong>90%</strong>。</li>
+<li><strong>提高模块复用与交付效率：</strong>建设可独立开发、部署和组合调用的原子能力体系，统一模块启动、任务执行、状态查询与退出管理，支撑 GR3/GRW 等项目量产交付，单模块适配投入由 <strong>3 人天降至 0.5 人天</strong>。</li>
+<li><strong>支持自研运动算法接入：</strong>建设控制器接入与管理机制，支持用户自主开发运动控制算法，统一控制器运行、切换和停止流程，完成自研控制器与内置运控之间的控制权交接。</li>
+<li><strong>完善任务执行与问题追溯：</strong>贯通任务发起、受理、进度报告及结果查询，支持执行记录留存和异常追踪，提高多模块协作与复杂任务联调效率。</li>
+<li><strong>减少重复数据接入成本：</strong>建设共享数据访问与有界缓存机制，支持多个模块复用订阅及缓存资源，并按使用需求建立和回收，内存使用效率提升 <strong>20%–30%</strong>。</li>
+<li><strong>提高跨环境研发效率：</strong>统一实机与仿真的开发接口，支持业务模块和控制算法在不同环境中接入、验证与联调，减少重复适配及研发过程对实机的依赖。</li>
 </ul>
 <h4>数据观测与异常取证</h4>
 <ul>
@@ -123,12 +123,14 @@
 <h2 id="works-title">作品展示</h2>
 <span class="section-number" aria-hidden="true">02</span>
 </div>
-<p class="section-note">项目演示与界面截图将在整理后补充。</p>
+<p class="section-note">机器人二次开发、数据观测与可视化研发工具。</p>
 <div class="works-grid">
-<article class="work-item" id="work-frs"><div class="work-placeholder" role="note" aria-label="二次开发框架 作品素材待补充">素材待补充</div>
+<article class="work-item" id="work-frs">
+<a class="work-image-link" href="frs.html#project-works" aria-label="查看二次开发框架图文介绍"><img class="work-image" src="assets/frs-module-integration.svg" width="1280" height="1052" loading="lazy" alt="开发者文档中的整体架构图，呈现应用、业务模块、控制器和机器人系统之间的关系"></a>
 <div>
-<h3>二次开发框架与通信中间件</h3>
-<p>统一 SDK 调用、原子能力接入或跨机型复用演示</p>
+<h3><a href="frs.html">二次开发框架与通信中间件</a></h3>
+<p>统一开发入口，支持业务能力复用、自研运动算法接入与实机/仿真联合开发。</p>
+<a href="frs.html#project-works">查看图文介绍 <span aria-hidden="true">↗</span></a>
 </div></article><article class="work-item" id="work-fdi"><div class="work-placeholder" role="note" aria-label="数据观测与异常取证 作品素材待补充">素材待补充</div>
 <div>
 <h3>数据观测与异常取证</h3>
