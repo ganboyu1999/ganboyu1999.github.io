@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="1052" viewBox="0 0 1280 1052" role="img" aria-labelledby="title desc">
+  <title id="title">FRS 整体架构</title>
+  <desc id="desc">应用经 Unix Socket 调用 FRS。AtomHelper 管理独立 Atom 子进程并激活读取 Topic，FRS 写入共享缓存，Atom 的 DataLoader 只读解码。ControllerManager 托管加载 C++ 共享库的 worker，publish 回调进入宿主的帧校验和控制权管理，再由 PlatformAdapter 发布。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L7 3.5 L0 7 Z" fill="#333333"/></marker>
+    <style>text { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; } path { stroke-linejoin: round; }</style>
+  </defs>
+  <rect width="1280" height="1052" fill="#ffffff"/>
+  <text x="32" y="48" font-size="25" font-weight="500" text-anchor="start" fill="#222222">FRS 整体架构</text>
+  <rect x="440" y="82" width="400" height="82" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="640.0" y="117.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">应用</text>
+  <text x="640.0" y="144.0" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">Python / C++ SDK / CLI</text>
+  <rect x="344" y="234" width="592" height="644" fill="#ffffff" stroke="#666666" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="360" y="263" font-size="20" font-weight="400" text-anchor="start" fill="#222222">FRS 服务进程</text>
+  <rect x="372" y="316" width="536" height="56" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="640.0" y="351.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">服务调用入口（RPC）</text>
+  <rect x="372" y="436" width="248" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="496.0" y="475.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">AtomHelper</text>
+  <rect x="656" y="434" width="252" height="312" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="782" y="470" font-size="20" font-weight="400" text-anchor="middle" fill="#222222">ControllerManager</text>
+  <rect x="680" y="562" width="204" height="60" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="782.0" y="599.0" font-size="19" font-weight="400" text-anchor="middle" fill="#222222">FrameValidator</text>
+  <rect x="680" y="654" width="204" height="60" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="782.0" y="691.0" font-size="19" font-weight="400" text-anchor="middle" fill="#222222">ControlAuthority</text>
+  <rect x="372" y="650" width="248" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="496.0" y="676.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">Topic 运行时</text>
+  <text x="496.0" y="703.0" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">DDS Reader</text>
+  <rect x="372" y="804" width="536" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="640.0" y="843.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">PlatformAdapter</text>
+  <rect x="32" y="394" width="232" height="240" fill="#ffffff" stroke="#666666" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="48" y="423" font-size="20" font-weight="400" text-anchor="start" fill="#222222">Atom 子进程</text>
+  <rect x="56" y="436" width="184" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="148.0" y="462.0" font-size="20" font-weight="400" text-anchor="middle" fill="#222222">Atom Runtime</text>
+  <text x="148.0" y="489.0" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">C++ / Python</text>
+  <rect x="56" y="532" width="184" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="148.0" y="571.0" font-size="20" font-weight="400" text-anchor="middle" fill="#222222">DataLoader</text>
+  <rect x="32" y="650" width="232" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="148.0" y="676.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">共享内存</text>
+  <text x="148.0" y="703.0" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">FRSCDR4</text>
+  <rect x="1016" y="394" width="232" height="280" fill="#ffffff" stroke="#666666" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="1032" y="423" font-size="19" font-weight="400" text-anchor="start" fill="#222222">Controller 子进程</text>
+  <rect x="1040" y="436" width="184" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="1132.0" y="475.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">worker</text>
+  <rect x="1040" y="562" width="184" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="1132.0" y="601.0" font-size="19" font-weight="400" text-anchor="middle" fill="#222222">Controller .so</text>
+  <rect x="372" y="952" width="536" height="68" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="640.0" y="993.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">机器人 / FHM</text>
+  <path d="M640 164 L640 316" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="660" y="218" font-size="17" font-weight="400" text-anchor="start" fill="#222222">Unix Socket</text>
+  <path d="M496 372 L496 436" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M782 372 L782 434" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M372 456 L240 456" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="304" y="442" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">stdin</text>
+  <path d="M240 484 L372 484" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="304" y="521" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">stdout</text>
+  <path d="M496 500 L496 650" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="516" y="584" font-size="17" font-weight="400" text-anchor="start" fill="#222222">topics.read</text>
+  <path d="M908 468 L1040 468" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="976" y="453" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">IPC</text>
+  <path d="M1132 500 L1132 562" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="1150" y="540" font-size="16" font-weight="400" text-anchor="start" fill="#222222">dlopen</text>
+  <path d="M1040 592 L884 592" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="976" y="577" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">publish</text>
+  <path d="M782 622 L782 654" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M782 714 L782 804" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="802" y="782" font-size="17" font-weight="400" text-anchor="start" fill="#222222">控制帧</text>
+  <path d="M372 682 L264 682" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="314" y="667" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">CDR</text>
+  <path d="M148 650 L148 596" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="168" y="624" font-size="17" font-weight="400" text-anchor="start" fill="#222222">只读</text>
+  <path d="M148 532 L148 500" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M496 804 L496 714" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="476" y="782" font-size="17" font-weight="400" text-anchor="end" fill="#222222">状态</text>
+  <path d="M604 952 L604 868" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="584" y="921" font-size="17" font-weight="400" text-anchor="end" fill="#222222">状态</text>
+  <path d="M676 868 L676 952" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="696" y="921" font-size="17" font-weight="400" text-anchor="start" fill="#222222">命令</text>
+</svg>
