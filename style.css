@@ -156,3 +156,10 @@ footer a { color: var(--muted); }
 .project-showcase p { margin-bottom: 0; color: var(--muted); }
 @media(max-width:640px) { #work-frs { grid-template-columns: 1fr; gap: 14px; } .capability-grid { grid-template-columns: 1fr; gap: 20px; } .project-showcase + .project-showcase { margin-top: 32px; } .project-showcase figcaption { grid-template-columns: 21px minmax(0,1fr); gap: 9px; } }
 @media print { .project-showcase { width: 100%; margin-left: 0; transform: none; break-inside: avoid; } .diagram-original > img { max-height: 360px; object-fit: contain; } #work-frs { display: block; } }
+
+.showcase-video { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 8px; background: #0a0e16; }
+.showcase-video:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+.media-caption-meta { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.screenshot-original { background: #0a0e16; }
+#work-fdi .work-image, #work-fviz .work-image { aspect-ratio: 16 / 9; object-fit: cover; object-position: top; }
+@media print { .showcase-video { max-height: 320px; object-fit: contain; } }
