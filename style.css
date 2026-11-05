@@ -188,3 +188,24 @@ footer a { color: var(--muted); }
 @media (max-width: 640px) { .home { padding-left: 22px; } }
 @media (max-width: 360px) { .home { padding-left: 18px; } }
 @media print { .home { max-width: none; padding: 0; } .side-nav, .mobile-directory { display: none; } }
+
+.work-points { margin: 8px 0 12px; padding-left: 17px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.work-points li { margin-bottom: 5px; }
+#work-frs .work-points { font-size: 13px; }
+.showcase-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 12px; }
+.showcase-nav a { display: inline-flex; align-items: baseline; gap: 8px; }
+.showcase-nav a > span { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+.showcase-group { margin-top: 44px; padding-top: 30px; border-top: 1px solid var(--rule); }
+.showcase-group-heading { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
+.showcase-group-heading h3 { font-size: 18px; line-height: 1.7; }
+.showcase-contributions { margin-bottom: 0; }
+.showcase-contributions li { margin-bottom: 8px; }
+.showcase-group .project-showcase figcaption { display: block; }
+.showcase-group .project-showcase h4 { margin: 0 0 6px; font-size: 15px; }
+.showcase-group .project-showcase[id] { scroll-margin-top: 12px; }
+@media (max-width: 640px) {
+ .showcase-nav { gap: 8px 16px; }
+ .showcase-group { margin-top: 32px; padding-top: 24px; }
+ .showcase-group-heading { gap: 10px; }
+ .showcase-group-heading h3 { font-size: 16px; }
+}

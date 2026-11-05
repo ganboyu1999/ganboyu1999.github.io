@@ -10,7 +10,7 @@
   <meta property="og:description" content="把短暂发生的机器人异常，转化为可回溯、可分析的事件数据。">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=5552ed72">
 <link rel="canonical" href="https://ganboyu1999.github.io/fdi.html">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:url" content="https://ganboyu1999.github.io/fdi.html">
@@ -61,37 +61,71 @@
 <h3>事件上下文取证</h3>
 <p>筛选器识别事件后保留触发前后数据，并关联日志与配置快照，形成可供回溯的事件材料。MCAP 作为录制载体，支持后续回放和分析。</p>
 <h3>筛选器扩展与回流恢复</h3>
-<p>通过统一接口与独立配置承接业务筛选逻辑，结合异步上传、失败重试和状态恢复，让业务模块接入事件时复用采集与回流能力。</p></section><section id="project-works" aria-labelledby="project-works-title"><div class="section-heading"><h2 id="project-works-title">项目展示</h2></div>
-      <figure class="project-showcase">
+<p>通过统一接口与独立配置承接业务筛选逻辑，结合异步上传、失败重试和状态恢复，让业务模块接入事件时复用采集与回流能力。</p></section><section id="project-works" aria-labelledby="project-works-title">
+<div class="section-heading"><h2 id="project-works-title">项目展示</h2></div>
+<nav class="showcase-nav" aria-label="项目展示分组">
+<a href="#showcase-recording"><span aria-hidden="true">01</span>录制与数据回流</a>
+<a href="#showcase-filters"><span aria-hidden="true">02</span>扩展事件筛选器</a>
+<a href="#showcase-safety"><span aria-hidden="true">03</span>安全事件取证</a>
+</nav>
+<section class="showcase-group" id="showcase-recording" aria-labelledby="showcase-recording-title">
+<div class="showcase-group-heading"><span class="showcase-number" aria-hidden="true">01</span><h3 id="showcase-recording-title">录制与数据回流，补齐异常前后的证据</h3></div>
+<ul class="showcase-contributions">
+<li>构建 DDS 采集、环形前滚缓存和 MCAP 录制链路，解耦数据接收、录制与上传，保留异常发生前后的上下文。</li>
+<li>支持异常取证与训练数据采集，累计录制回流事件 <strong>10 万+</strong>；通过集中检索和可视化回看还原事件过程。</li>
+</ul>
+<figure class="project-showcase">
         <a class="diagram-original screenshot-original" href="assets/fdi-data-library.jpg" target="_blank" rel="noopener" aria-label="放大查看异常事件回流与集中检索"><img src="assets/fdi-data-library.jpg" width="1600" height="836" loading="lazy" alt="数据回流平台的事件列表，包含录制统计、筛选条件、事件标签及可视化入口"></a>
-        <figcaption><span class="showcase-number">01</span><div><h3>异常事件回流与集中检索</h3><p>集中查看机器人回流的事件数据，按事件类型、型号、机器人和时间筛选，直接进入可视化分析或下载取证材料。</p><a class="diagram-source-link" href="assets/fdi-data-library.jpg" target="_blank" rel="noopener">放大查看 <span aria-hidden="true">↗</span></a></div></figcaption>
+        <figcaption><div><h4>异常事件回流与集中检索</h4><p>集中查看机器人回流的事件数据，按事件类型、型号、机器人和时间筛选，直接进入可视化分析或下载取证材料。</p><a class="diagram-source-link" href="assets/fdi-data-library.jpg" target="_blank" rel="noopener">放大查看 <span aria-hidden="true">↗</span></a></div></figcaption>
       </figure>
-      <figure class="project-showcase">
-        <a class="diagram-original screenshot-original" href="assets/fdi-event-search.jpg" target="_blank" rel="noopener" aria-label="放大查看摔倒事件筛选与复盘入口"><img src="assets/fdi-event-search.jpg" width="1600" height="836" loading="lazy" alt="数据回流平台筛选摔倒事件后的列表，显示事件标签、采集信息和回放入口"></a>
-        <figcaption><span class="showcase-number">02</span><div><h3>摔倒事件筛选与复盘入口</h3><p>从累计回流数据中定位摔倒事件，关联采集时间、机器人与录包文件，为安全保护开发和异常复盘提供数据。</p><a class="diagram-source-link" href="assets/fdi-event-search.jpg" target="_blank" rel="noopener">放大查看 <span aria-hidden="true">↗</span></a></div></figcaption>
-      </figure>
-      <figure class="project-showcase">
+<figure class="project-showcase">
         <video class="showcase-video" controls playsinline preload="none" poster="assets/fdi-event-replay.jpg" width="1262" height="650" aria-label="事件数据回看演示视频">
           <source src="assets/fdi-event-replay.mp4" type="video/mp4">
           <a href="assets/fdi-event-replay.mp4">观看事件数据回看演示视频</a>
         </video>
-        <figcaption><span class="showcase-number">03</span><div><h3>事件数据回看</h3><p>将事件录包接入可视化工作台，同步查看机器人姿态、状态消息和相机画面，辅助还原事件发生时的上下文。</p><span class="media-caption-meta">00:41 · 功能录屏</span></div></figcaption>
+        <figcaption><div><h4>事件数据回看</h4><p>将事件录包接入可视化工作台，同步查看机器人姿态、状态消息和相机画面，辅助还原事件发生时的上下文。</p><span class="media-caption-meta">00:41 · 功能录屏</span></div></figcaption>
       </figure>
-      <figure class="project-showcase">
+</section>
+<section class="showcase-group" id="showcase-filters" aria-labelledby="showcase-filters-title">
+<div class="showcase-group-heading"><span class="showcase-number" aria-hidden="true">02</span><h3 id="showcase-filters-title">扩展事件筛选器，统一取证材料管理</h3></div>
+<ul class="showcase-contributions">
+<li>设计统一接口、独立配置的筛选器架构，支持业务模块自行扩展，已接入 <strong>20+ 个筛选器</strong>。</li>
+<li>自动收集事件数据、日志和配置快照，支持异步上传、失败重试与重启恢复；配套文件和日志入口便于访问取证材料。</li>
+</ul>
+<figure class="project-showcase">
         <video class="showcase-video" controls playsinline preload="none" poster="assets/fdi-remote-files.jpg" width="1264" height="634" aria-label="远程录包与目录管理演示视频">
           <source src="assets/fdi-remote-files.mp4" type="video/mp4">
           <a href="assets/fdi-remote-files.mp4">观看远程录包与目录管理演示视频</a>
         </video>
-        <figcaption><span class="showcase-number">04</span><div><h3>远程录包与目录管理</h3><p>在统一入口浏览机器人录制文件与数据目录，按需访问事件材料，减少远程定位问题时反复切换工具的操作。</p><span class="media-caption-meta">00:42 · 功能录屏</span></div></figcaption>
+        <figcaption><div><h4>远程录包与目录管理</h4><p>在统一入口浏览机器人录制文件与数据目录，按需访问事件材料，减少远程定位问题时反复切换工具的操作。</p><span class="media-caption-meta">00:42 · 功能录屏</span></div></figcaption>
       </figure>
-      <figure class="project-showcase">
+<figure class="project-showcase">
         <video class="showcase-video" controls playsinline preload="none" poster="assets/fdi-remote-debug.jpg" width="1264" height="634" aria-label="日志访问与在线联调演示视频">
           <source src="assets/fdi-remote-debug.mp4" type="video/mp4">
           <a href="assets/fdi-remote-debug.mp4">观看日志访问与在线联调演示视频</a>
         </video>
-        <figcaption><span class="showcase-number">05</span><div><h3>日志访问与在线联调</h3><p>集中访问机器人日志和现场调试终端，结合录包文件开展异常取证与问题联调。</p><span class="media-caption-meta">01:25 · 功能录屏</span></div></figcaption>
+        <figcaption><div><h4>日志访问与在线联调</h4><p>集中访问机器人日志和现场调试终端，结合录包文件开展异常取证与问题联调。</p><span class="media-caption-meta">01:25 · 功能录屏</span></div></figcaption>
       </figure>
-    </section><p class="back-link"><a href="index.html#experience">← 返回工作经历</a></p>
+</section>
+<section class="showcase-group" id="showcase-safety" aria-labelledby="showcase-safety-title">
+<div class="showcase-group-heading"><span class="showcase-number" aria-hidden="true">03</span><h3 id="showcase-safety-title">安全事件取证，支撑典型跌倒复盘</h3></div>
+<ul class="showcase-contributions">
+<li>开发摔倒、急停等安全类筛选器，回流召回率 <strong>100%</strong>、准确率 <strong>99%</strong>，累计回流真实摔倒数据 <strong>300+ 条</strong>。</li>
+<li>将事件筛选与多视角回放串联，用于问题定位、执行器与运控算法安全保护功能的开发测试，以及版本准出和交付。</li>
+</ul>
+<figure class="project-showcase">
+        <a class="diagram-original screenshot-original" href="assets/fdi-event-search.jpg" target="_blank" rel="noopener" aria-label="放大查看摔倒事件筛选与复盘入口"><img src="assets/fdi-event-search.jpg" width="1600" height="836" loading="lazy" alt="数据回流平台筛选摔倒事件后的列表，显示事件标签、采集信息和回放入口"></a>
+        <figcaption><div><h4>摔倒事件筛选与复盘入口</h4><p>从累计回流数据中定位摔倒事件，关联采集时间、机器人与录包文件，为安全保护开发和异常复盘提供数据。</p><a class="diagram-source-link" href="assets/fdi-event-search.jpg" target="_blank" rel="noopener">放大查看 <span aria-hidden="true">↗</span></a></div></figcaption>
+      </figure>
+<figure class="project-showcase" id="typical-fall-case">
+        <video class="showcase-video" controls playsinline preload="none" poster="assets/fviz-replay.jpg" width="1266" height="650" aria-label="典型跌倒案例：事件回放与问题复盘视频">
+          <source src="assets/fviz-replay.mp4" type="video/mp4">
+          <a href="assets/fviz-replay.mp4">观看典型跌倒案例：事件回放与问题复盘视频</a>
+        </video>
+        <figcaption><div><h4>典型跌倒案例：事件回放与问题复盘</h4><p>以一次典型跌倒事件为例，联动回放机器人姿态、运动轨迹、状态曲线与相机画面，观察跌倒前后的变化，为问题定位和安全保护功能验证提供依据。</p><span class="media-caption-meta">00:30 · 功能录屏</span></div></figcaption>
+      </figure>
+</section>
+</section><p class="back-link"><a href="index.html#experience">← 返回工作经历</a></p>
 </main>
   <footer><span>© 2026 Zhuocheng Han</span><a href="#top">返回顶部 ↑</a></footer>
 </body>
