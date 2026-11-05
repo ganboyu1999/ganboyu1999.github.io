@@ -11,6 +11,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
 <link rel="canonical" href="https://ganboyu1999.github.io/">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:url" content="https://ganboyu1999.github.io/">
@@ -18,15 +19,27 @@
 <body id="top" class="home">
   <a class="skip-link" href="#main">跳到正文</a>
   <header class="hero"><div class="hero-copy">
-<p class="eyebrow">机器人系统 · 数据闭环 · 研发工具</p>
 <h1>Zhuocheng Han</h1>
 <p class="subtitle">机器人系统与自动驾驶研发工程师</p>
 <p class="hero-about">主导机器人二次开发框架建设，负责数据回流与可视化研发工具开发。曾在 Momenta DLP 组从事 AEB 数据闭环与算法量产，关注如何降低开发接入成本、完善异常取证并提高研发迭代效率。</p>
 <p class="current-role">现就职于傅利叶智能 · 操作系统组</p>
 <div class="hero-links">
-<a class="primary-link" href="mailto:hanzc1999@163.com" aria-label="通过邮件联系：hanzc1999@163.com">hanzc1999@163.com <span aria-hidden="true">↗</span></a><a href="#experience">浏览工作经历 <span aria-hidden="true">↓</span></a>
+<a class="primary-link" href="mailto:hanzc1999@163.com" aria-label="通过邮件联系：hanzc1999@163.com">hanzc1999@163.com <span aria-hidden="true">↗</span></a>
 </div>
-</div></header><nav class="page-nav" aria-label="页面导航"><a href="#experience">工作经历</a><a href="#works">作品展示</a><a class="nav-top" href="#top" aria-label="返回页面顶部">ZH ↑</a></nav><main id="main"><section id="experience" aria-labelledby="experience-title"><div class="section-heading">
+</div></header>
+<nav class="side-nav" aria-label="页面目录">
+  <p class="directory-title">目录</p>
+  <a href="#experience"><span aria-hidden="true">01</span>工作经历</a>
+  <a href="#works"><span aria-hidden="true">02</span>项目展示</a>
+</nav>
+<details class="mobile-directory">
+  <summary>目录 <span aria-hidden="true">≡</span></summary>
+  <nav aria-label="页面目录">
+    <a href="#experience"><span aria-hidden="true">01</span>工作经历</a>
+    <a href="#works"><span aria-hidden="true">02</span>项目展示</a>
+  </nav>
+</details>
+<main id="main"><section id="experience" aria-labelledby="experience-title"><div class="section-heading">
 <h2 id="experience-title">工作经历</h2>
 <span class="section-number" aria-hidden="true">01</span>
 </div>
@@ -91,7 +104,7 @@
 <h4>数据闭环</h4>
 <ul>
 <li>
-<strong>搭建 AEB 数据闭环：</strong>从 0 到 1 统一管理 AEB 全量数据，支撑 <strong>100+ 个核心场景</strong>攻坚落地，项目在公司内部 <strong>2 次</strong>获得飞轮悬赏令。</li>
+<strong>搭建 AEB 数据闭环：</strong>从0到1搭建AEB数据闭环体系，支撑 <strong>100+ 个核心场景</strong>攻坚落地，项目在公司内部 <strong>2 次</strong>获得飞轮悬赏令。</li>
 <li>
 <strong>提高真值生成效率：</strong>构建自车轨迹、自车刹车轨迹及物体未来轨迹预测，实现全场景 AEB 真值自动生成，支持规控算法迭代及 E2E/RTR/IHC 模型训练，产线自动化率达到 <strong>90%+</strong>、真值准确率达到 <strong>98%+</strong>。</li>
 <li>
@@ -116,7 +129,7 @@
 <strong>建设 AEB 研发协作中台：</strong>作为中台负责人开发全链路工具与 Agent，建设技能仓库并接入 BOT；搭建 FO 平台，集成影子准出、实车看板、数据生产、媒体监控、人工标注、一键训练和版本管理，支持产品、测试等团队协作。</li>
 </ul>
 </div></details></article></section><section id="works" aria-labelledby="works-title"><div class="section-heading">
-<h2 id="works-title">作品展示</h2>
+<h2 id="works-title">项目展示</h2>
 <span class="section-number" aria-hidden="true">02</span>
 </div>
 <p class="section-note">机器人二次开发、数据观测与可视化研发工具。</p>
@@ -128,13 +141,13 @@
 <p>统一开发入口，支持业务能力复用、自研运动算法接入与实机/仿真联合开发。</p>
 <a href="frs.html#project-works">查看图文与实机演示 <span aria-hidden="true">↗</span></a>
 </div></article><article class="work-item" id="work-fdi">
-<a class="work-image-link" href="fdi.html#project-works" aria-label="查看数据观测与异常取证作品"><img class="work-image" src="assets/fdi-data-library.jpg" width="1600" height="836" loading="lazy" alt="机器人异常事件数据回流平台的统计、筛选与事件列表"></a>
+<a class="work-image-link" href="fdi.html#project-works" aria-label="查看数据观测与异常取证项目展示"><img class="work-image" src="assets/fdi-data-library.jpg" width="1600" height="836" loading="lazy" alt="机器人异常事件数据回流平台的统计、筛选与事件列表"></a>
 <div>
 <h3><a href="fdi.html">数据观测与异常取证</a></h3>
 <p>异常事件集中回流、分类检索与可视化复盘，贯通数据获取和问题追溯。</p>
 <a href="fdi.html#project-works">查看截图与演示 <span aria-hidden="true">↗</span></a>
 </div></article><article class="work-item" id="work-fviz">
-<a class="work-image-link" href="fviz.html#project-works" aria-label="查看机器人可视化研发平台作品"><img class="work-image" src="assets/fviz-analysis-workbench.jpg" width="1600" height="820" loading="lazy" alt="机器人三维姿态、曲线、消息与相机图像联动展示的研发工作台"></a>
+<a class="work-image-link" href="fviz.html#project-works" aria-label="查看机器人可视化研发平台项目展示"><img class="work-image" src="assets/fviz-analysis-workbench.jpg" width="1600" height="820" loading="lazy" alt="机器人三维姿态、曲线、消息与相机图像联动展示的研发工作台"></a>
 <div>
 <h3><a href="fviz.html">机器人可视化研发平台</a></h3>
 <p>多面板联动分析、动作编辑、场景搭建与台架仿真的实际操作演示。</p>
