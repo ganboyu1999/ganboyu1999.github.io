@@ -10,13 +10,13 @@
     "source": "assets/diagrams/data-lifecycle.svg"
   },
   "atom-architecture": {
-    "image": "assets/images/5889b1e0cd337010b72de960b7e47c7f9c369768c3138db8c9af100eae7fb28f.png",
-    "title": "Atom：模块运行与插件",
+    "image": "assets/images/8751a3c8915bb3af0eca2e5d1e7fd8f64e4aeaead508785579083d35653a46d3.png",
+    "title": "Atom 的进程与通信",
     "source": "assets/diagrams/atom-architecture.svg"
   },
   "controller-architecture": {
-    "image": "assets/images/c06ff656a7271c801178adc619004b143d019ee5ce8b04c71263e26295c2a931.png",
-    "title": "Controller：模块运行与控制",
+    "image": "assets/images/50933def6a2d3ce7eb2b69f461938137ecf8a4f4ccbe456d6f0c73d43d0910b3.png",
+    "title": "Controller 的进程与控制链路",
     "source": "assets/diagrams/controller-architecture.svg"
   },
   "frs-module-integration": {

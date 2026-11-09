@@ -88,8 +88,8 @@
 <li>在 GR3/GRW 等项目交付中，单模块适配投入由 <strong>3 人天降至 0.5 人天</strong>；以下展示任务组合、实机执行及自研控制器接入。</li>
 </ul>
 <figure class="project-showcase">
-<a class="diagram-original" href="assets/atom-architecture.svg?v=20261110" target="_blank" rel="noopener" aria-label="查看 Atom 模块与插件架构原图"><img src="assets/atom-architecture.svg?v=20261110" width="1400" height="860" loading="lazy" alt="Atom 运行时、插件库与 FRS SDK 的协作关系，区分模块托管、共享数据读取及系统能力调用。"></a>
-<figcaption><div><h4>Atom 模块与插件架构</h4><p>Atom 运行时、插件库与 FRS SDK 的协作关系，区分模块托管、共享数据读取及系统能力调用。</p><a class="diagram-source-link" href="assets/atom-architecture.svg?v=20261110" target="_blank" rel="noopener">查看原图 <span aria-hidden="true">↗</span></a></div></figcaption>
+<a class="diagram-original" href="assets/atom-architecture.svg?v=20261110-original-modules" target="_blank" rel="noopener" aria-label="查看 Atom 的进程与通信原图"><img src="assets/atom-architecture.svg?v=20261110-original-modules" width="1200" height="720" loading="lazy" alt="AtomHelper 与 Atom Runtime 通过进程管道交换命令和报告；状态经共享内存读取，服务调用通过本机 Socket 接入。"></a>
+<figcaption><div><h4>Atom 的进程与通信</h4><p>AtomHelper 与 Atom Runtime 通过进程管道交换命令和报告；状态经共享内存读取，服务调用通过本机 Socket 接入。</p><a class="diagram-source-link" href="assets/atom-architecture.svg?v=20261110-original-modules" target="_blank" rel="noopener">查看原图 <span aria-hidden="true">↗</span></a></div></figcaption>
 </figure>
 <figure class="project-showcase">
         <a class="diagram-original screenshot-original" href="assets/frs-task-console.jpg" target="_blank" rel="noopener" aria-label="放大查看任务操作与能力组合"><img src="assets/frs-task-console.jpg" width="1600" height="794" loading="lazy" alt="机器人任务操作台，包含感知状态、导航视图、任务终端和已保存的任务按钮"></a>
@@ -103,8 +103,8 @@
         <figcaption><div><h4>实机任务联调</h4><p>机器人移动、桌面操作、物品抓取和递交的实机任务片段，呈现业务能力组合后的实际执行过程。</p><span class="media-caption-meta">01:34 · 实机演示精选</span></div></figcaption>
       </figure>
 <figure class="project-showcase">
-        <a class="diagram-original" href="assets/controller-architecture.svg?v=20261110" target="_blank" rel="noopener" aria-label="查看自研控制器与运动二开原图"><img src="assets/controller-architecture.svg?v=20261110" width="1400" height="930" loading="lazy" alt="开发者文档中的控制器架构图，呈现自研控制器、运行管理与机器人运动控制之间的协作关系"></a>
-        <figcaption><div><h4>自研控制器与运动二开</h4><p>支持自主运动算法接入，统一管理控制器运行、切换与停止，完成自研控制器和内置运控之间的控制权交接。</p><a class="diagram-source-link" href="assets/controller-architecture.svg?v=20261110" target="_blank" rel="noopener">查看原图 <span aria-hidden="true">↗</span></a></div></figcaption>
+        <a class="diagram-original" href="assets/controller-architecture.svg?v=20261110-original-modules" target="_blank" rel="noopener" aria-label="查看自研控制器与运动二开原图"><img src="assets/controller-architecture.svg?v=20261110-original-modules" width="1200" height="860" loading="lazy" alt="开发者文档中的控制器架构图，呈现自研控制器、运行管理与机器人运动控制之间的协作关系"></a>
+        <figcaption><div><h4>自研控制器与运动二开</h4><p>支持自主运动算法接入，统一管理控制器运行、切换与停止，完成自研控制器和内置运控之间的控制权交接。</p><a class="diagram-source-link" href="assets/controller-architecture.svg?v=20261110-original-modules" target="_blank" rel="noopener">查看原图 <span aria-hidden="true">↗</span></a></div></figcaption>
       </figure>
 </section>
 <section class="showcase-group" id="showcase-shared-data" aria-labelledby="showcase-shared-data-title">

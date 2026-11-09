@@ -1,51 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="930" viewBox="0 0 1400 930" role="img" aria-labelledby="title desc">
-<title id="title">Controller：模块运行与控制</title><desc id="desc">FRS 托管 Controller 独立进程，worker 动态加载控制器插件。插件经上下文和 IPC 读取状态、发布命令，FRS 负责控制权、校验及平台输出。</desc>
-<style>text{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif}</style><defs>
-<marker id="line" markerWidth="10" markerHeight="10" refX="9" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#6B8198"/></marker>
-<marker id="line-start" markerWidth="10" markerHeight="10" refX="1" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,0 L0,5 L10,10 Z" fill="#6B8198"/></marker>
-<marker id="blue" markerWidth="10" markerHeight="10" refX="9" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2867B2"/></marker>
-<marker id="blue-start" markerWidth="10" markerHeight="10" refX="1" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,0 L0,5 L10,10 Z" fill="#2867B2"/></marker>
-<marker id="data" markerWidth="10" markerHeight="10" refX="9" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#078B87"/></marker>
-<marker id="data-start" markerWidth="10" markerHeight="10" refX="1" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,0 L0,5 L10,10 Z" fill="#078B87"/></marker>
-<marker id="control" markerWidth="10" markerHeight="10" refX="9" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#CF6B32"/></marker>
-<marker id="control-start" markerWidth="10" markerHeight="10" refX="1" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,0 L0,5 L10,10 Z" fill="#CF6B32"/></marker>
-</defs>
-<rect x="0" y="0" width="1400" height="930" rx="0" fill="white" stroke="none" stroke-width="2"/>
-<text x="50" y="66" font-size="36" font-weight="650" fill="#18344F" text-anchor="start">Controller：模块运行与控制</text>
-<rect x="50" y="130" width="510" height="590" rx="16" fill="#FAFCFF" stroke="#AFBECD" stroke-width="2" stroke-dasharray="8 6"/>
-<text x="74" y="169" font-size="25" font-weight="600" fill="#18344F" text-anchor="start">FRS 服务进程</text>
-<rect x="800" y="130" width="550" height="590" rx="16" fill="#FAFCFF" stroke="#AFBECD" stroke-width="2" stroke-dasharray="8 6"/>
-<text x="824" y="169" font-size="25" font-weight="600" fill="#18344F" text-anchor="start">Controller 进程</text>
-<rect x="90" y="230" width="430" height="90" rx="12" fill="white" stroke="#CBD7E3" stroke-width="2"/>
-<text x="305.0" y="284.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">模块托管</text>
-<rect x="90" y="410" width="430" height="90" rx="12" fill="#EFF9F7" stroke="#CBD7E3" stroke-width="2"/>
-<text x="305.0" y="464.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">数据运行时</text>
-<rect x="90" y="590" width="430" height="90" rx="12" fill="#FFF5EE" stroke="#CBD7E3" stroke-width="2"/>
-<text x="305.0" y="628.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">控制出口</text>
-<text x="305.0" y="663.0" font-size="21" font-weight="400" fill="#60758A" text-anchor="middle">控制权 · 校验 · 适配</text>
-<rect x="840" y="230" width="470" height="90" rx="12" fill="white" stroke="#CBD7E3" stroke-width="2"/>
-<text x="1075.0" y="284.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">Worker</text>
-<rect x="840" y="410" width="470" height="90" rx="12" fill="#F2EDF9" stroke="#CBD7E3" stroke-width="2"/>
-<text x="1075.0" y="464.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">插件库 .so</text>
-<rect x="840" y="590" width="470" height="90" rx="12" fill="white" stroke="#CBD7E3" stroke-width="2"/>
-<text x="1075.0" y="628.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">Context</text>
-<text x="1075.0" y="663.0" font-size="21" font-weight="400" fill="#60758A" text-anchor="middle">state / get / publish</text>
-<path d="M 520,275 L 840,275" fill="none" stroke="#6B8198" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#line)" marker-start="url(#line-start)"/>
-<text x="680" y="253" text-anchor="middle" font-size="22" fill="#6B8198" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">生命周期 / IPC</text>
-<path d="M 1075,320 L 1075,410" fill="none" stroke="#6B8198" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#line)"/>
-<text x="1140" y="370" text-anchor="middle" font-size="21" fill="#6B8198" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">dlopen</text>
-<path d="M 1075,500 L 1075,590" fill="none" stroke="#6B8198" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#line)" marker-start="url(#line-start)"/>
-<path d="M 520,455 L 670,455 L 670,615 L 840,615" fill="none" stroke="#078B87" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#data)"/>
-<text x="680" y="432" text-anchor="middle" font-size="22" fill="#078B87" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">状态 / IPC</text>
-<path d="M 840,655 L 520,655" fill="none" stroke="#CF6B32" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#control)"/>
-<text x="680" y="685" text-anchor="middle" font-size="22" fill="#CF6B32" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">命令 / IPC</text>
-<rect x="90" y="820" width="430" height="65" rx="12" fill="white" stroke="#CBD7E3" stroke-width="2"/>
-<text x="305.0" y="861.5" font-size="28" font-weight="600" fill="#18344F" text-anchor="middle">HAL</text>
-<path d="M 305,680 L 305,820" fill="none" stroke="#CF6B32" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#control)"/>
-<text x="360" y="775" text-anchor="middle" font-size="21" fill="#CF6B32" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">执行</text>
-<path d="M 90,852 L 70,852 L 70,455 L 90,455" fill="none" stroke="#078B87" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#data)"/>
-<rect x="840" y="820" width="470" height="65" rx="12" fill="white" stroke="#CBD7E3" stroke-width="2"/>
-<text x="1075.0" y="861.5" font-size="26" font-weight="600" fill="#18344F" text-anchor="middle">系统模块</text>
-<path d="M 520,300 L 740,300 L 740,852 L 840,852" fill="none" stroke="#6B8198" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#line)" marker-start="url(#line-start)" stroke-dasharray="7 5"/>
-<text x="775" y="780" text-anchor="middle" font-size="21" fill="#6B8198" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">SDK / 协调控制</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860" role="img" aria-labelledby="title desc">
+  <title id="title">Controller 的进程与控制链路</title>
+  <desc id="desc">独立 worker 加载 Controller 共享库，并通过 IPC 调用宿主上下文。publish 回调进入 ControllerManager 内的 FrameValidator 与 ControlAuthority；状态读取、命令发布与控制权交接经 PlatformAdapter。AuroraService 对接机器人或 FHM 中的 Aurora，机器人侧控制闸门按 owner 和 epoch 接受命令。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L7 3.5 L0 7 Z" fill="#333333"/></marker>
+    <style>text { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; } path { stroke-linejoin: round; }</style>
+  </defs>
+  <rect width="1200" height="860" fill="#ffffff"/>
+  <text x="32" y="48" font-size="25" font-weight="500" text-anchor="start" fill="#222222">Controller 的进程与控制链路</text>
+  <rect x="32" y="112" width="268" height="304" fill="#ffffff" stroke="#666666" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="48" y="141" font-size="19" font-weight="400" text-anchor="start" fill="#222222">Controller 子进程</text>
+  <rect x="56" y="188" width="220" height="60" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="166.0" y="225.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">worker</text>
+  <rect x="56" y="324" width="220" height="60" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="166.0" y="361.0" font-size="20" font-weight="400" text-anchor="middle" fill="#222222">Controller .so</text>
+  <rect x="460" y="112" width="680" height="536" fill="#ffffff" stroke="#666666" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="476" y="141" font-size="20" font-weight="400" text-anchor="start" fill="#222222">FRS 服务进程</text>
+  <rect x="484" y="172" width="300" height="232" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="634" y="207" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">ControllerManager</text>
+  <rect x="506" y="256" width="256" height="52" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="634.0" y="289.0" font-size="20" font-weight="400" text-anchor="middle" fill="#222222">FrameValidator</text>
+  <rect x="506" y="328" width="256" height="52" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="634.0" y="361.0" font-size="20" font-weight="400" text-anchor="middle" fill="#222222">ControlAuthority</text>
+  <rect x="484" y="528" width="300" height="60" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="634.0" y="565.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">PlatformAdapter</text>
+  <rect x="884" y="528" width="224" height="60" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="996.0" y="565.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">AuroraService</text>
+  <rect x="460" y="688" width="680" height="140" fill="#ffffff" stroke="#666666" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="850" y="715" font-size="20" font-weight="400" text-anchor="middle" fill="#222222">机器人系统 / FHM</text>
+  <rect x="484" y="728" width="300" height="70" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="634.0" y="757.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">执行器控制闸门</text>
+  <text x="634.0" y="784.0" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">owner / epoch</text>
+  <rect x="884" y="728" width="224" height="70" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="996.0" y="770.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">Aurora</text>
+  <path d="M166 248 L166 324" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="186" y="294" font-size="17" font-weight="400" text-anchor="start" fill="#222222">dlopen</text>
+  <path d="M484 218 L276 218" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="380" y="202" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">IPC</text>
+  <path d="M276 354 L376 354 L376 282 L506 282" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="427" y="268" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">publish</text>
+  <path d="M634 308 L634 328" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M634 404 L634 528" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="654" y="472" font-size="16" font-weight="400" text-anchor="start" fill="#222222">state / publish / handover</text>
+  <path d="M784 354 L996 354 L996 528" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="890" y="338" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">request_fsm_state</text>
+  <path d="M618 588 L618 728" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M650 728 L650 588" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="670" y="670" font-size="17" font-weight="400" text-anchor="start" fill="#222222">Unix Socket</text>
+  <path d="M980 588 L980 728" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M1012 728 L1012 588" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="1032" y="670" font-size="17" font-weight="400" text-anchor="start" fill="#222222">DDS 服务</text>
+  <path d="M884 763 L784 763" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="834" y="748" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">控制</text>
 </svg>

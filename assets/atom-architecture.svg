@@ -1,44 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="860" viewBox="0 0 1400 860" role="img" aria-labelledby="title desc">
-<title id="title">Atom：模块运行与插件</title><desc id="desc">FRS 管理 Atom 子进程。进程管道传递命令与报告，共享缓存提供只读数据；算法插件由模块自身集成，Atom 通过 FRS SDK 访问服务。</desc>
-<style>text{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif}</style><defs>
-<marker id="line" markerWidth="10" markerHeight="10" refX="9" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#6B8198"/></marker>
-<marker id="line-start" markerWidth="10" markerHeight="10" refX="1" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,0 L0,5 L10,10 Z" fill="#6B8198"/></marker>
-<marker id="blue" markerWidth="10" markerHeight="10" refX="9" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#2867B2"/></marker>
-<marker id="blue-start" markerWidth="10" markerHeight="10" refX="1" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,0 L0,5 L10,10 Z" fill="#2867B2"/></marker>
-<marker id="data" markerWidth="10" markerHeight="10" refX="9" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#078B87"/></marker>
-<marker id="data-start" markerWidth="10" markerHeight="10" refX="1" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,0 L0,5 L10,10 Z" fill="#078B87"/></marker>
-<marker id="control" markerWidth="10" markerHeight="10" refX="9" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#CF6B32"/></marker>
-<marker id="control-start" markerWidth="10" markerHeight="10" refX="1" refY="5" markerUnits="userSpaceOnUse" orient="auto"><path d="M10,0 L0,5 L10,10 Z" fill="#CF6B32"/></marker>
-</defs>
-<rect x="0" y="0" width="1400" height="860" rx="0" fill="white" stroke="none" stroke-width="2"/>
-<text x="50" y="66" font-size="36" font-weight="650" fill="#18344F" text-anchor="start">Atom：模块运行与插件</text>
-<rect x="50" y="130" width="510" height="580" rx="16" fill="#FAFCFF" stroke="#AFBECD" stroke-width="2" stroke-dasharray="8 6"/>
-<text x="74" y="169" font-size="25" font-weight="600" fill="#18344F" text-anchor="start">FRS 服务进程</text>
-<rect x="800" y="130" width="550" height="580" rx="16" fill="#FAFCFF" stroke="#AFBECD" stroke-width="2" stroke-dasharray="8 6"/>
-<text x="824" y="169" font-size="25" font-weight="600" fill="#18344F" text-anchor="start">Atom 进程</text>
-<rect x="90" y="230" width="430" height="90" rx="12" fill="white" stroke="#CBD7E3" stroke-width="2"/>
-<text x="305.0" y="284.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">模块托管</text>
-<rect x="90" y="410" width="430" height="90" rx="12" fill="#EFF9F7" stroke="#CBD7E3" stroke-width="2"/>
-<text x="305.0" y="464.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">数据运行时</text>
-<rect x="90" y="590" width="430" height="80" rx="12" fill="#FFF5EE" stroke="#CBD7E3" stroke-width="2"/>
-<text x="305.0" y="639.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">控制接口</text>
-<rect x="840" y="230" width="470" height="90" rx="12" fill="white" stroke="#CBD7E3" stroke-width="2"/>
-<text x="1075.0" y="284.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">Atom Runtime</text>
-<rect x="840" y="410" width="470" height="90" rx="12" fill="#F2EDF9" stroke="#CBD7E3" stroke-width="2"/>
-<text x="1075.0" y="464.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">插件库 .so</text>
-<rect x="840" y="590" width="470" height="80" rx="12" fill="white" stroke="#CBD7E3" stroke-width="2"/>
-<text x="1075.0" y="639.0" font-size="27" font-weight="600" fill="#18344F" text-anchor="middle">FRS SDK</text>
-<path d="M 520,275 L 840,275" fill="none" stroke="#6B8198" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#line)" marker-start="url(#line-start)"/>
-<text x="680" y="253" text-anchor="middle" font-size="22" fill="#6B8198" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">命令 / 报告</text>
-<path d="M 520,455 L 685,455 L 685,310 L 840,310" fill="none" stroke="#078B87" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#data)"/>
-<text x="675" y="493" text-anchor="middle" font-size="22" fill="#078B87" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">只读共享缓存</text>
-<path d="M 1075,320 L 1075,410" fill="none" stroke="#6B8198" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#line)" marker-start="url(#line-start)"/>
-<text x="1158" y="370" text-anchor="middle" font-size="21" fill="#6B8198" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">加载 / 调用</text>
-<path d="M 1310,275 L 1330,275 L 1330,630 L 1310,630" fill="none" stroke="#CF6B32" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#control)"/>
-<path d="M 840,630 L 520,630" fill="none" stroke="#CF6B32" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#control)"/>
-<text x="680" y="608" text-anchor="middle" font-size="22" fill="#CF6B32" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">RPC</text>
-<rect x="90" y="760" width="430" height="65" rx="12" fill="white" stroke="#CBD7E3" stroke-width="2"/>
-<text x="305.0" y="801.5" font-size="25" font-weight="600" fill="#18344F" text-anchor="middle">系统模块</text>
-<path d="M 305,670 L 305,760" fill="none" stroke="#CF6B32" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#control)"/>
-<text x="365" y="735" text-anchor="middle" font-size="21" fill="#CF6B32" paint-order="stroke" stroke="white" stroke-width="7" stroke-linejoin="round">SDK</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Atom 的进程与通信</title>
+  <desc id="desc">AtomHelper 通过 stdin 下发命令、通过 stdout 接收报告，由 TaskReportCache 和 TaskEventStore 保存任务数据。topics.read 激活宿主 Reader 与共享缓存。Atom 的 DataLoader 只读共享内存并使用公共 IDL 解码；SDK 发布和服务调用经本机 Unix Socket 进入 FRS 的服务调用入口（RPC），并接收执行结果。</desc>
+  <defs>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path d="M0 0 L7 3.5 L0 7 Z" fill="#333333"/></marker>
+    <style>text { font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; } path { stroke-linejoin: round; }</style>
+  </defs>
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <text x="32" y="48" font-size="25" font-weight="500" text-anchor="start" fill="#222222">Atom 的进程与通信</text>
+  <rect x="40" y="132" width="424" height="548" fill="#ffffff" stroke="#666666" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="56" y="161" font-size="20" font-weight="400" text-anchor="start" fill="#222222">FRS 服务进程</text>
+  <rect x="720" y="132" width="440" height="548" fill="#ffffff" stroke="#666666" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <text x="736" y="161" font-size="20" font-weight="400" text-anchor="start" fill="#222222">Atom 子进程</text>
+  <rect x="72" y="208" width="304" height="184" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="224" y="246" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">AtomHelper</text>
+  <rect x="96" y="272" width="256" height="44" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="224.0" y="301.0" font-size="19" font-weight="400" text-anchor="middle" fill="#222222">TaskReportCache</text>
+  <rect x="96" y="332" width="256" height="44" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="224.0" y="361.0" font-size="19" font-weight="400" text-anchor="middle" fill="#222222">TaskEventStore</text>
+  <rect x="744" y="220" width="384" height="90" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="936.0" y="259.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">Atom Runtime</text>
+  <text x="936.0" y="286.0" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">C++ / Python</text>
+  <rect x="72" y="460" width="304" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="224.0" y="486.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">Topic 运行时</text>
+  <text x="224.0" y="513.0" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">DDS Reader</text>
+  <rect x="512" y="452" width="144" height="80" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="584.0" y="486.0" font-size="19" font-weight="400" text-anchor="middle" fill="#222222">共享内存</text>
+  <text x="584.0" y="513.0" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">FRSCDR4</text>
+  <rect x="744" y="460" width="176" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="832.0" y="499.0" font-size="20" font-weight="400" text-anchor="middle" fill="#222222">DataLoader</text>
+  <rect x="72" y="600" width="304" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="224.0" y="639.0" font-size="21" font-weight="400" text-anchor="middle" fill="#222222">服务调用入口（RPC）</text>
+  <rect x="952" y="600" width="176" height="64" fill="#ffffff" stroke="#666666" stroke-width="1.2"/>
+  <text x="1040.0" y="639.0" font-size="20" font-weight="400" text-anchor="middle" fill="#222222">FRS SDK</text>
+  <path d="M376 240 L744 240" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="560" y="224" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">stdin · 命令</text>
+  <path d="M744 286 L376 286" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="560" y="271" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">stdout · TaskReport</text>
+  <path d="M224 392 L224 460" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="244" y="438" font-size="16" font-weight="400" text-anchor="start" fill="#222222">topics.read</text>
+  <path d="M376 492 L512 492" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="432" y="477" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">CDR</text>
+  <path d="M656 492 L744 492" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="686" y="477" font-size="16" font-weight="400" text-anchor="middle" fill="#222222">只读</text>
+  <path d="M832 460 L832 310" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="852" y="391" font-size="17" font-weight="400" text-anchor="start" fill="#222222">IDL → msg</text>
+  <path d="M1040 310 L1040 600" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <path d="M952 632 L376 632" fill="none" stroke="#333333" stroke-width="1.3" marker-end="url(#arrow)"/>
+  <text x="648" y="616" font-size="17" font-weight="400" text-anchor="middle" fill="#222222">Unix Socket</text>
 </svg>
