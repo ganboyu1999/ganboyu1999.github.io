@@ -33,7 +33,7 @@
         <div><dt>单模块适配投入</dt><dd>3 人天 → 0.5 人天</dd></div>
         <div><dt>内存使用效率</dt><dd>提升 20%–30%</dd></div>
       </dl>
-      <p class="outcome-summary">支撑 GR3/GRW 等项目量产交付，形成覆盖业务能力复用、自研算法接入和跨环境联调的统一开发体系。</p>
+      <p class="outcome-summary">支撑 GR3/GRW 等项目量产交付，形成覆盖业务能力复用、自研算法接入和跨环境联调的统一开发体系。基于 FRS 能力编排开展<a href="#showcase-stress-test">自动化压测</a>，验证实机连续任务运行。</p>
     </section>
     <section id="overview" aria-labelledby="overview-title">
       <div class="section-heading"><h2 id="overview-title">项目介绍</h2></div>
@@ -68,6 +68,7 @@
 <a href="#showcase-interfaces"><span aria-hidden="true">01</span>统一开发接口</a>
 <a href="#showcase-modules"><span aria-hidden="true">02</span>原子能力编排</a>
 <a href="#showcase-shared-data"><span aria-hidden="true">03</span>复用共享数据</a>
+<a href="#showcase-stress-test"><span aria-hidden="true">04</span>自动化压测</a>
 </nav>
 <section class="showcase-group" id="showcase-interfaces" aria-labelledby="showcase-interfaces-title">
 <div class="showcase-group-heading"><span class="showcase-number" aria-hidden="true">01</span><h3 id="showcase-interfaces-title">统一开发接口，降低接入成本</h3></div>
@@ -115,6 +116,20 @@
 <figure class="project-showcase">
         <a class="diagram-original" href="assets/data-flow.svg?v=20261110" target="_blank" rel="noopener" aria-label="查看共享数据与多模块协作原图"><img src="assets/data-flow.svg?v=20261110" width="1200" height="764" loading="lazy" alt="开发者文档中的数据流图，呈现机器人数据读取、共享缓存和能力调用的完整链路"></a>
         <figcaption><div><h4>共享数据与多模块协作</h4><p>统一数据访问、能力调用与消息发布，减少多个业务模块重复接入同类数据的工作，提高资源利用率与协作效率。</p><a class="diagram-source-link" href="assets/data-flow.svg?v=20261110" target="_blank" rel="noopener">查看原图 <span aria-hidden="true">↗</span></a></div></figcaption>
+      </figure>
+</section>
+<section class="showcase-group" id="showcase-stress-test" aria-labelledby="showcase-stress-test-title">
+<div class="showcase-group-heading"><span class="showcase-number" aria-hidden="true">04</span><h3 id="showcase-stress-test-title">基于 FRS 架构的自动化压测</h3></div>
+<ul class="showcase-contributions">
+<li>通过 Workflow 循环编排 FRS 原子能力，连续执行抓取任务，验证任务调用与模块协作链路的稳定性。</li>
+<li>同步展示循环轮次、当前步骤和执行状态，支持长时间运行验证与异常定位。</li>
+</ul>
+<figure class="project-showcase" id="frs-workflow-stress-test">
+        <video class="showcase-video" controls playsinline preload="none" poster="assets/frs-workflow-stress-test.jpg" width="640" height="480" aria-label="基于 FRS 架构的自动化压测，4 倍速演示视频" aria-describedby="stress-test-caption">
+          <source src="assets/frs-workflow-stress-test.mp4" type="video/mp4">
+          <a href="assets/frs-workflow-stress-test.mp4">观看自动化压测视频（4 倍速）</a>
+        </video>
+        <figcaption id="stress-test-caption"><div><h4>抓取流程循环压测</h4><p>完整保留约 31 分钟的实机压测过程，以 4 倍速展示 Workflow 驱动下的连续任务执行。</p><span class="media-caption-meta">07:45 · 4 倍速 · 实机压测</span></div></figcaption>
       </figure>
 </section>
 </section>
