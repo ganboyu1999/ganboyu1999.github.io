@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.20)
+project(cpp_thumbs_up LANGUAGES CXX)
+find_package(frs CONFIG REQUIRED COMPONENTS runtime aurora)
+find_package(nlohmann_json CONFIG REQUIRED)
+add_subdirectory(pose_planner)
+add_executable(cpp_thumbs_up main.cpp)
+target_compile_features(cpp_thumbs_up PRIVATE cxx_std_17)
+target_compile_options(cpp_thumbs_up PRIVATE -Wall -Wextra -Wpedantic)
+# FRS 管生命周期、Topic 和控制代理；pose_planner 加载配套 FBA 规划插件。
+target_link_libraries(cpp_thumbs_up PRIVATE frs::runtime frs::aurora pose_planner nlohmann_json::nlohmann_json)

@@ -1,0 +1,27 @@
+{
+  "data-flow": {
+    "image": "assets/images/a75689d1ff1312b03b56d9aafcb4a7b21522ed8bfad67ab71904dfad66da037b.png",
+    "title": "Topic 读取与发布",
+    "source": "assets/diagrams/data-flow.svg"
+  },
+  "data-lifecycle": {
+    "image": "assets/images/e9d5c0bbf92b6908ab0c3f3b7dbdea644a0c72290f728c122ce573e97c2ff615.png",
+    "title": "Topic 数据的生命周期",
+    "source": "assets/diagrams/data-lifecycle.svg"
+  },
+  "atom-architecture": {
+    "image": "assets/images/5889b1e0cd337010b72de960b7e47c7f9c369768c3138db8c9af100eae7fb28f.png",
+    "title": "Atom：模块运行与插件",
+    "source": "assets/diagrams/atom-architecture.svg"
+  },
+  "controller-architecture": {
+    "image": "assets/images/c06ff656a7271c801178adc619004b143d019ee5ce8b04c71263e26295c2a931.png",
+    "title": "Controller：模块运行与控制",
+    "source": "assets/diagrams/controller-architecture.svg"
+  },
+  "frs-module-integration": {
+    "image": "assets/images/573ad1442b2890abf05f7eaa38cdb8ae524c0581cc61e5fbb3b37514661a1d49.png",
+    "title": "FRS 软件架构",
+    "source": "assets/diagrams/frs-module-integration.svg"
+  }
+}

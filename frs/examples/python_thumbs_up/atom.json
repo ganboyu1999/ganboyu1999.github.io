@@ -1,0 +1,42 @@
+{
+  "id": "python_thumbs_up",
+  "version": "1.0.0",
+  "runtime": "python",
+  "start_with_frs": false,
+  "topics": {
+    "read": [
+      "/motion_ctrl/aurora/control_group_state"
+    ],
+    "types": {
+      "/motion_ctrl/aurora/control_group_state": "gr_interface/msg/RobotControlGroupState"
+    }
+  },
+  "commands": [
+    {
+      "name": "run",
+      "description": "右手比大拇指点赞",
+      "input": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "cli": {
+        "positional": []
+      },
+      "examples": [
+        "frs python_thumbs_up run"
+      ]
+    },
+    {
+      "name": "stop",
+      "description": "取消点赞，保持实测位置并释放资源",
+      "input": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "cli": {
+        "positional": []
+      }
+    }
+  ],
+  "script": "main.py"
+}

@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="2630" viewBox="0 0 3200 2630" role="img" aria-labelledby="title desc">
+<title id="title">FDI 软件架构</title>
+<desc id="desc">FDI 软件架构。FDT 通过 fdi_control_client 的 JSONL 接口和私有 DDS 调用 fdi_onboard，原生 fdi CLI 使用同一 DDS 控制面。fdi_onboard 内部包含数据监听、ControlApi、Recorder、FilterChain、进程内前滚缓存、事件窗口、MCAP Writer、IDL Catalog、后台上传与清理管理。事件和连续录制落地本地文件后由 IngestAgent 上传 S3 或 MinIO。独立的 fdi_echo_stream 进程直接订阅机器人 Topic，并向 FVIZ 输出 JSONL 实时流；不经过 Recorder。虚线框表示独立进程。</desc>
+<style>text{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif}</style><defs><filter id="shadow" x="-8%" y="-12%" width="120%" height="140%"><feDropShadow dx="3" dy="6" stdDeviation="4" flood-color="#18344B" flood-opacity="0.16"/></filter>
+<marker id="blue" markerWidth="14" markerHeight="14" refX="13" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L14,7 L0,14 Z" fill="#2C6BCC"/></marker>
+<marker id="blue-start" markerWidth="14" markerHeight="14" refX="1" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M14,0 L0,7 L14,14 Z" fill="#2C6BCC"/></marker>
+<marker id="data" markerWidth="14" markerHeight="14" refX="13" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L14,7 L0,14 Z" fill="#16877A"/></marker>
+<marker id="data-start" markerWidth="14" markerHeight="14" refX="1" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M14,0 L0,7 L14,14 Z" fill="#16877A"/></marker>
+<marker id="sdk" markerWidth="14" markerHeight="14" refX="13" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L14,7 L0,14 Z" fill="#B87534"/></marker>
+<marker id="sdk-start" markerWidth="14" markerHeight="14" refX="1" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M14,0 L0,7 L14,14 Z" fill="#B87534"/></marker>
+<marker id="line" markerWidth="14" markerHeight="14" refX="13" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L14,7 L0,14 Z" fill="#708DA7"/></marker>
+<marker id="line-start" markerWidth="14" markerHeight="14" refX="1" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M14,0 L0,7 L14,14 Z" fill="#708DA7"/></marker>
+</defs>
+<rect x="0" y="0" width="3200" height="2630" rx="0" fill="#F2F7FC" stroke="none" stroke-width="2"/>
+<rect x="0" y="0" width="3200" height="150" rx="14" fill="#11395E" stroke="none" stroke-width="2"/>
+<text x="65" y="99" font-size="59" font-weight="700" fill="white" text-anchor="start">FDI 软件架构</text>
+<rect x="60" y="195" width="900" height="150" rx="24" fill="#F4EBFF" stroke="#BA9AE8" stroke-width="2.5"/>
+<text x="90" y="251" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">FDT / 应用</text>
+<text x="90" y="303" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">录制控制 · 数据管理</text>
+<rect x="1040" y="195" width="900" height="150" rx="24" fill="#F4EBFF" stroke="#BA9AE8" stroke-width="2.5"/>
+<text x="1070" y="251" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">终端 / 脚本</text>
+<text x="1070" y="303" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">本机命令行调用</text>
+<rect x="2220" y="195" width="900" height="150" rx="24" fill="#F4EBFF" stroke="#BA9AE8" stroke-width="2.5"/>
+<text x="2250" y="251" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">FVIZ</text>
+<text x="2250" y="303" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">Topic 发现 · 实时可视化</text>
+<rect x="60" y="440" width="900" height="210" rx="28" fill="#E9F3FF" stroke="#90BFF0" stroke-width="2.5" stroke-dasharray="12 9"/>
+<text x="92" y="496" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">fdi_control_client 进程</text>
+<g class="module-card" data-title="JSONL 控制适配">
+<rect x="90" y="520" width="840" height="110" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="118" y="564" font-size="33" font-weight="650" fill="#102B45" text-anchor="start">JSONL 控制适配</text>
+<text x="118" y="607" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">请求 / 响应 · 私有控制协议</text>
+</g>
+<rect x="1040" y="440" width="900" height="210" rx="28" fill="#E9F3FF" stroke="#90BFF0" stroke-width="2.5" stroke-dasharray="12 9"/>
+<text x="1072" y="496" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">fdi CLI 进程</text>
+<g class="module-card" data-title="原生命令行入口">
+<rect x="1070" y="520" width="840" height="110" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1098" y="564" font-size="33" font-weight="650" fill="#102B45" text-anchor="start">原生命令行入口</text>
+<text x="1098" y="607" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">状态查询 · 开始 / 停止录制</text>
+</g>
+<rect x="2220" y="440" width="900" height="210" rx="28" fill="#E9FAF5" stroke="#73BDA4" stroke-width="2.5" stroke-dasharray="12 9"/>
+<text x="2252" y="496" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">fdi_echo_stream 进程</text>
+<g class="module-card" data-title="独立 Topic 订阅">
+<rect x="2250" y="520" width="840" height="110" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2278" y="564" font-size="33" font-weight="650" fill="#102B45" text-anchor="start">独立 Topic 订阅</text>
+<text x="2278" y="607" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">CDR + IDL · JSONL 实时输出</text>
+</g>
+<path d="M 510,345 L 510,440" fill="none" stroke="#2C6BCC" stroke-width="3" stroke-linejoin="round" marker-end="url(#blue)" marker-start="url(#blue-start)"/>
+<text x="540" y="402" font-size="26" font-weight="500" fill="#2C6BCC" text-anchor="start">JSONL</text>
+<path d="M 1490,345 L 1490,440" fill="none" stroke="#2C6BCC" stroke-width="3" stroke-linejoin="round" marker-end="url(#blue)" marker-start="url(#blue-start)"/>
+<text x="1520" y="402" font-size="25" font-weight="500" fill="#2C6BCC" text-anchor="start">命令 / 结果</text>
+<path d="M 2670,440 L 2670,345" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="2700" y="402" font-size="26" font-weight="500" fill="#16877A" text-anchor="start">JSONL</text>
+<rect x="60" y="840" width="2130" height="1540" rx="28" fill="#EEF5FF" stroke="#7896BA" stroke-width="2.5" stroke-dasharray="12 9"/>
+<text x="92" y="896" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">fdi_onboard 服务进程</text>
+<g class="module-card" data-title="DdsServer / ControlApi">
+<rect x="100" y="955" width="760" height="170" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="128" y="999" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">DdsServer / ControlApi</text>
+<text x="128" y="1042" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">私有 DDS · 本机回环</text>
+<text x="128" y="1076" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">录制 / 订阅 / 上传 / 状态接口</text>
+</g>
+<g class="module-card" data-title="DDS / ROS2 Listener">
+<rect x="1370" y="955" width="760" height="170" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1398" y="999" font-size="33" font-weight="650" fill="#102B45" text-anchor="start">DDS / ROS2 Listener</text>
+<text x="1398" y="1042" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">Topic 发现 · 按需订阅 · 原始 CDR</text>
+<text x="1398" y="1076" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">ROS2 接入按构建与配置启用</text>
+</g>
+<path d="M 510,650 L 510,735 L 480,735 L 480,955" fill="none" stroke="#2C6BCC" stroke-width="3" stroke-linejoin="round" marker-end="url(#blue)" marker-start="url(#blue-start)"/>
+<path d="M 1490,650 L 1490,735 L 510,735" fill="none" stroke="#2C6BCC" stroke-width="3" stroke-linejoin="round"/>
+<text x="790" y="787" font-size="28" font-weight="500" fill="#2C6BCC" text-anchor="start">私有 DDS 请求 / 响应</text>
+<rect x="2350" y="945" width="790" height="180" rx="22" fill="#F3F6F9" stroke="#A6B7C7" stroke-width="2.5"/>
+<text x="2380" y="1001" font-size="35" font-weight="650" fill="#102B45" text-anchor="start">机器人 Topic</text>
+<text x="2380" y="1052" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">DDS / ROS2 · real / sim</text>
+<text x="2380" y="1090" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">状态 · 传感器 · 图像 · …</text>
+<path d="M 2350,1040 L 2130,1040" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="2240" y="1008" font-size="26" font-weight="500" fill="#16877A" text-anchor="middle">订阅</text>
+<path d="M 2745,945 L 2745,650" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="2775" y="797" font-size="27" font-weight="500" fill="#16877A" text-anchor="start">独立订阅</text>
+<rect x="100" y="1240" width="2030" height="500" rx="28" fill="#E9FAF5" stroke="#73D1AE" stroke-width="2.5"/>
+<text x="132" y="1296" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">Recorder · 录制与事件管理</text>
+<g class="module-card" data-title="FilterChain / 检测规则">
+<rect x="140" y="1330" width="600" height="195" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="168" y="1374" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">FilterChain / 检测规则</text>
+<text x="168" y="1417" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">频率 · 跌倒 · 崩溃 · …</text>
+<text x="168" y="1451" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">共享解码 · 录制决策 · 事件触发</text>
+<text x="168" y="1485" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">FilterRegistry · 内置规则扩展</text>
+</g>
+<g class="module-card" data-title="前滚缓存">
+<rect x="790" y="1330" width="590" height="195" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="818" y="1374" font-size="33" font-weight="650" fill="#102B45" text-anchor="start">前滚缓存</text>
+<text x="818" y="1417" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">进程内环形缓冲</text>
+<text x="818" y="1451" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">时间窗口 · 容量限制</text>
+<text x="818" y="1485" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">事件前历史数据</text>
+</g>
+<g class="module-card" data-title="EventCapture">
+<rect x="1430" y="1330" width="660" height="195" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1458" y="1374" font-size="33" font-weight="650" fill="#102B45" text-anchor="start">EventCapture</text>
+<text x="1458" y="1417" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">事件前后窗口 · 手动采集</text>
+<text x="1458" y="1451" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">日志 / 配置 / 崩溃证据</text>
+<text x="1458" y="1485" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">事件元数据与附件归档</text>
+</g>
+<g class="module-card" data-title="录制会话">
+<rect x="140" y="1610" width="1950" height="110" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="168" y="1654" font-size="33" font-weight="650" fill="#102B45" text-anchor="start">录制会话</text>
+<text x="168" y="1697" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">连续录制 · 手动录制 · 事件窗口</text>
+</g>
+<path d="M 480,1125 L 480,1240" fill="none" stroke="#2C6BCC" stroke-width="3" stroke-linejoin="round" marker-end="url(#blue)"/>
+<text x="510" y="1197" font-size="26" font-weight="500" fill="#2C6BCC" text-anchor="start">录制控制</text>
+<path d="M 1750,1125 L 1750,1240" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="1780" y="1197" font-size="26" font-weight="500" fill="#16877A" text-anchor="start">RecordedMessage</text>
+<path d="M 1380,1420 L 1430,1420" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<path d="M 440,1525 L 440,1610" fill="none" stroke="#2C6BCC" stroke-width="3" stroke-linejoin="round" marker-end="url(#blue)"/>
+<path d="M 1760,1525 L 1760,1610" fill="none" stroke="#2C6BCC" stroke-width="3" stroke-linejoin="round" marker-end="url(#blue)"/>
+<text x="470" y="1577" font-size="23" font-weight="500" fill="#2C6BCC" text-anchor="start">策略 / 触发</text>
+<text x="1790" y="1577" font-size="23" font-weight="500" fill="#2C6BCC" text-anchor="start">采集窗口</text>
+<rect x="2350" y="1320" width="790" height="300" rx="22" fill="#F3F6F9" stroke="#A6B7C7" stroke-width="2.5"/>
+<text x="2380" y="1376" font-size="35" font-weight="650" fill="#102B45" text-anchor="start">系统日志与转储</text>
+<text x="2380" y="1430" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">日志文件 · 内核日志</text>
+<text x="2380" y="1474" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">Core / Minidump · 配置快照</text>
+<text x="2380" y="1544" font-size="27" font-weight="500" fill="#405F79" text-anchor="start">Crash handler .so（可选）</text>
+<text x="2380" y="1583" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">在被监测进程内生成转储</text>
+<path d="M 2350,1470 L 2090,1470" fill="none" stroke="#B87534" stroke-width="3" stroke-linejoin="round" marker-end="url(#sdk)"/>
+<text x="2270" y="1437" font-size="23" font-weight="500" fill="#B87534" text-anchor="middle">证据采集</text>
+<g class="module-card" data-title="Ros2IDL Catalog">
+<rect x="100" y="1820" width="760" height="160" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="128" y="1864" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">Ros2IDL Catalog</text>
+<text x="128" y="1907" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">GR / ROS2 类型定义</text>
+<text x="128" y="1941" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">类型与 MCAP Schema 映射</text>
+</g>
+<g class="module-card" data-title="RecordingWriter">
+<rect x="1370" y="1820" width="760" height="160" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1398" y="1864" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">RecordingWriter</text>
+<text x="1398" y="1907" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">MCAP / CDR · LZ4 压缩</text>
+<text x="1398" y="1941" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">分段写入 · 文件收口与持久化</text>
+</g>
+<path d="M 1750,1740 L 1750,1820" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="1780" y="1791" font-size="25" font-weight="500" fill="#16877A" text-anchor="start">写入</text>
+<path d="M 860,1900 L 1370,1900" fill="none" stroke="#708DA7" stroke-width="3" stroke-linejoin="round" marker-end="url(#line)"/>
+<text x="1115" y="1867" font-size="26" font-weight="500" fill="#405F79" text-anchor="middle">类型定义</text>
+<rect x="2350" y="1820" width="790" height="160" rx="22" fill="#FFF9E9" stroke="#E8C453" stroke-width="2.5"/>
+<text x="2380" y="1874" font-size="35" font-weight="650" fill="#102B45" text-anchor="start">本地录制与事件包</text>
+<text x="2380" y="1924" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">MCAP · 日志 / 转储 · 元数据</text>
+<path d="M 2130,1900 L 2350,1900" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="2240" y="1867" font-size="26" font-weight="500" fill="#16877A" text-anchor="middle">落盘</text>
+<g class="module-card" data-title="运行管理">
+<rect x="100" y="2130" width="760" height="190" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="128" y="2174" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">运行管理</text>
+<text x="128" y="2217" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">配置加载 · 监听恢复 · 状态统计</text>
+<text x="128" y="2251" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">磁盘保留策略 · 文件清理</text>
+</g>
+<g class="module-card" data-title="IngestAgent">
+<rect x="1370" y="2130" width="760" height="190" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1398" y="2174" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">IngestAgent</text>
+<text x="1398" y="2217" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">后台上传线程 · 事件与文件队列</text>
+<text x="1398" y="2251" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">重试退避 · 启动恢复 · 上传登记</text>
+</g>
+<path d="M 2745,1980 L 2745,2050 L 1750,2050 L 1750,2130" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="1970" y="2030" font-size="26" font-weight="500" fill="#16877A" text-anchor="middle">文件 / 事件包</text>
+<rect x="2350" y="2130" width="790" height="190" rx="22" fill="#FFF1E8" stroke="#F0AD70" stroke-width="2.5"/>
+<text x="2380" y="2186" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">S3 / MinIO</text>
+<text x="2380" y="2238" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">文件对象 · 事件元数据</text>
+<text x="2380" y="2280" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">远端存储</text>
+<path d="M 2130,2225 L 2350,2225" fill="none" stroke="#B87534" stroke-width="3" stroke-linejoin="round" marker-end="url(#sdk)"/>
+<text x="2240" y="2192" font-size="26" font-weight="500" fill="#B87534" text-anchor="middle">上传</text>
+<rect x="2350" y="2420" width="790" height="150" rx="22" fill="#F3F6F9" stroke="#A6B7C7" stroke-width="2.5"/>
+<text x="2380" y="2476" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">离线工具 / fdi-offboard</text>
+<text x="2380" y="2528" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">事件查询 · 下载 · 数据分析</text>
+<path d="M 2745,2320 L 2745,2420" fill="none" stroke="#708DA7" stroke-width="3" stroke-linejoin="round" marker-end="url(#line)"/>
+<text x="2775" y="2380" font-size="25" font-weight="500" fill="#405F79" text-anchor="start">查询 / 下载</text>
+</svg>

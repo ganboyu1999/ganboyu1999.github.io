@@ -209,3 +209,7 @@ footer a { color: var(--muted); }
  .showcase-group-heading { gap: 10px; }
  .showcase-group-heading h3 { font-size: 16px; }
 }
+
+.project-resources { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 24px 0 0; font-size: 14px; }
+.work-doc-link { display: inline-block; margin-left: 16px; }
+.detail-page .page-nav { overflow-x: auto; scrollbar-width: none; }

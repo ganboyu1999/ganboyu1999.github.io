@@ -10,7 +10,7 @@
   <meta property="og:description" content="在同一工作台连接数据、状态和场景，支撑机器人问题定位与开发联调。">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=5552ed72">
+  <link rel="stylesheet" href="style.css?v=20261110">
 <link rel="canonical" href="https://ganboyu1999.github.io/fviz.html">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:url" content="https://ganboyu1999.github.io/fviz.html">
@@ -70,6 +70,10 @@
 <li>统一离线回放与实时观测，接入 MCAP、Parquet、运动学轨迹与实时流 <strong>4 类数据</strong>。</li>
 <li>联动展示 3D 状态、曲线、图像与消息，支撑系统、感知、导航和运控团队协作定位问题。</li>
 </ul>
+<figure class="project-showcase" id="fviz-architecture">
+<a class="diagram-original" href="assets/fviz-software-architecture.svg?v=20261110" target="_blank" rel="noopener" aria-label="放大查看 FVIZ 软件架构"><img src="assets/fviz-software-architecture.svg?v=20261110" width="3200" height="2680" loading="lazy" alt="FVIZ 工作台、Python 本地服务与机器人运行时的架构；区分面板、共享状态、离线数据、实时数据和控制链路"></a>
+<figcaption><div><h4>FVIZ 软件架构</h4><p>面板通过共享工作区状态联动，数据接入区分离线回放、实时流与动作事件。Python 本地服务连接机器人侧数据接口与 FRS 控制接口。</p><a class="diagram-source-link" href="assets/fviz-software-architecture.svg?v=20261110" target="_blank" rel="noopener">放大查看 SVG <span aria-hidden="true">↗</span></a></div></figcaption>
+</figure>
 <figure class="project-showcase" id="live-stream-demo">
         <video class="showcase-video" controls playsinline preload="none" poster="assets/fviz-data-connection.jpg" width="1280" height="634" aria-label="连接机器人实时流视频">
           <source src="assets/fviz-data-connection.mp4" type="video/mp4">

@@ -10,7 +10,7 @@
   <meta property="og:description" content="把短暂发生的机器人异常，转化为可回溯、可分析的事件数据。">
   <meta property="og:type" content="website">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=5552ed72">
+  <link rel="stylesheet" href="style.css?v=20261110">
 <link rel="canonical" href="https://ganboyu1999.github.io/fdi.html">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:url" content="https://ganboyu1999.github.io/fdi.html">
@@ -74,6 +74,10 @@
 <li>构建 DDS 采集、环形前滚缓存和 MCAP 录制链路，解耦数据接收、录制与上传，保留异常发生前后的上下文。</li>
 <li>支持异常取证与训练数据采集，累计录制回流事件 <strong>10 万+</strong>；通过集中检索和可视化回看还原事件过程。</li>
 </ul>
+<figure class="project-showcase">
+<a class="diagram-original" href="assets/fdi-software-architecture.svg?v=20261110" target="_blank" rel="noopener" aria-label="查看 FDI 软件架构原图"><img src="assets/fdi-software-architecture.svg?v=20261110" width="3200" height="2630" loading="lazy" alt="私有 DDS 控制、事件录制与 MCAP 存储、独立实时流及后台上传的进程边界与数据链路。"></a>
+<figcaption><div><h4>FDI 软件架构</h4><p>私有 DDS 控制、事件录制与 MCAP 存储、独立实时流及后台上传的进程边界与数据链路。</p><a class="diagram-source-link" href="assets/fdi-software-architecture.svg?v=20261110" target="_blank" rel="noopener">查看原图 <span aria-hidden="true">↗</span></a></div></figcaption>
+</figure>
 <figure class="project-showcase">
         <a class="diagram-original screenshot-original" href="assets/fdi-data-library-clean.png" target="_blank" rel="noopener" aria-label="放大查看异常事件回流与集中检索"><img src="assets/fdi-data-library-clean.png" width="1600" height="836" loading="lazy" alt="数据回流平台的事件列表，包含录制统计、筛选条件、事件标签及可视化入口"></a>
         <figcaption><div><h4>异常事件回流与集中检索</h4><p>集中查看机器人回流的事件数据，按事件类型、型号、机器人和时间筛选，直接进入可视化分析或下载取证材料。</p><a class="diagram-source-link" href="assets/fdi-data-library-clean.png" target="_blank" rel="noopener">放大查看 <span aria-hidden="true">↗</span></a></div></figcaption>

@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="2680" viewBox="0 0 3200 2680" role="img" aria-labelledby="title desc">
+<title id="title">FVIZ 软件架构</title><desc id="desc">FVIZ 工作台分为面板、共享工作区状态与数据接入。离线文件在前端解析并按时间线回放；实时数据通过 FDI Web 数据接口进入工作台。Python 本地服务管理桌面集成、连接与控制桥接。机器人侧实时采集和控制服务位于外部运行边界。架构依据 FVIZ 1.3.1 安装包实现及配套开发文档整理。</desc>
+<style>text{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif}</style><defs><filter id="shadow" x="-8%" y="-12%" width="120%" height="140%"><feDropShadow dx="3" dy="6" stdDeviation="4" flood-color="#18344B" flood-opacity="0.16"/></filter>
+<marker id="blue" markerWidth="14" markerHeight="14" refX="13" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L14,7 L0,14 Z" fill="#2C6BCC"/></marker>
+<marker id="blue-start" markerWidth="14" markerHeight="14" refX="1" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M14,0 L0,7 L14,14 Z" fill="#2C6BCC"/></marker>
+<marker id="data" markerWidth="14" markerHeight="14" refX="13" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L14,7 L0,14 Z" fill="#16877A"/></marker>
+<marker id="data-start" markerWidth="14" markerHeight="14" refX="1" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M14,0 L0,7 L14,14 Z" fill="#16877A"/></marker>
+<marker id="sdk" markerWidth="14" markerHeight="14" refX="13" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L14,7 L0,14 Z" fill="#B87534"/></marker>
+<marker id="sdk-start" markerWidth="14" markerHeight="14" refX="1" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M14,0 L0,7 L14,14 Z" fill="#B87534"/></marker>
+<marker id="line" markerWidth="14" markerHeight="14" refX="13" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L14,7 L0,14 Z" fill="#708DA7"/></marker>
+<marker id="line-start" markerWidth="14" markerHeight="14" refX="1" refY="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M14,0 L0,7 L14,14 Z" fill="#708DA7"/></marker>
+</defs>
+<rect x="0" y="0" width="3200" height="2680" rx="0" fill="#F2F7FC" stroke="none" stroke-width="2"/>
+<rect x="0" y="0" width="3200" height="150" rx="14" fill="#11395E" stroke="none" stroke-width="2"/>
+<text x="65" y="99" font-size="59" font-weight="700" fill="white" text-anchor="start">FVIZ 软件架构</text>
+<rect x="60" y="205" width="3080" height="1300" rx="28" fill="#EEF5FF" stroke="#8DADD2" stroke-width="2.5"/>
+<text x="92" y="261" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">FVIZ 工作台 · React</text>
+<text x="3100" y="262" font-size="28" font-weight="500" fill="#405F79" text-anchor="end">PyWebView / 浏览器</text>
+<rect x="100" y="310" width="3000" height="330" rx="28" fill="#E9FAF5" stroke="#73CFAF" stroke-width="2.5"/>
+<text x="132" y="366" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">面板库</text>
+<g class="module-card" data-title="三维与图像">
+<rect x="135" y="402" width="940" height="195" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="163" y="446" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">三维与图像</text>
+<text x="163" y="489" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">3D · Camera · 感知视图 · …</text>
+<text x="163" y="523" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">Three.js / URDF · 机器人与场景渲染</text>
+</g>
+<g class="module-card" data-title="数据分析">
+<rect x="1130" y="402" width="930" height="195" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1158" y="446" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">数据分析</text>
+<text x="1158" y="489" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">Topic · Message · Plots · …</text>
+<text x="1158" y="523" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">消息检索 · 字段曲线 · 状态观测</text>
+</g>
+<g class="module-card" data-title="编辑与联调">
+<rect x="2115" y="402" width="950" height="195" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2143" y="446" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">编辑与联调</text>
+<text x="2143" y="489" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">Edit · Sim · Asset / Map · …</text>
+<text x="2143" y="523" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">动作编辑 · 仿真交互 · 场景配置</text>
+</g>
+<rect x="100" y="755" width="3000" height="300" rx="28" fill="#F2ECFF" stroke="#BEA5E3" stroke-width="2.5"/>
+<text x="132" y="811" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">共享工作区与状态</text>
+<g class="module-card" data-title="工作区 / 布局">
+<rect x="135" y="845" width="940" height="165" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="163" y="889" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">工作区 / 布局</text>
+<text x="163" y="932" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">多页面 · 面板组合 · 配置保存</text>
+</g>
+<g class="module-card" data-title="时间线 / 数据状态">
+<rect x="1130" y="845" width="930" height="165" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1158" y="889" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">时间线 / 数据状态</text>
+<text x="1158" y="932" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">离线播放与定位 · 实时最新状态</text>
+</g>
+<g class="module-card" data-title="模型 / 编辑状态">
+<rect x="2115" y="845" width="950" height="165" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2143" y="889" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">模型 / 编辑状态</text>
+<text x="2143" y="932" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">机器人模型 · 姿态 · 场景与动作</text>
+</g>
+<path d="M 605,755 L 605,640" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<path d="M 1595,755 L 1595,640" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<path d="M 2590,755 L 2590,640" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="1640" y="710" font-size="27" font-weight="500" fill="#16877A" text-anchor="start">状态联动</text>
+<rect x="100" y="1165" width="3000" height="295" rx="28" fill="#FFF9E9" stroke="#E8C453" stroke-width="2.5"/>
+<text x="132" y="1221" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">数据接入</text>
+<g class="module-card" data-title="MCAP">
+<rect x="135" y="1255" width="940" height="160" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="163" y="1299" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">MCAP</text>
+<text x="163" y="1342" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">Schema / CDR 解码 · Topic / 时间索引</text>
+</g>
+<g class="module-card" data-title="Parquet / 动作 JSON">
+<rect x="1130" y="1255" width="930" height="160" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1158" y="1299" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">Parquet / 动作 JSON</text>
+<text x="1158" y="1342" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">Episode 合并 · 轨迹与动作导入</text>
+</g>
+<g class="module-card" data-title="实时流 / 动作事件">
+<rect x="2115" y="1255" width="950" height="160" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2143" y="1299" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">实时流 / 动作事件</text>
+<text x="2143" y="1342" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">FDI 数据流 · Studio 动作接收</text>
+</g>
+<path d="M 605,1165 L 605,1055" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<path d="M 1595,1165 L 1595,1055" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<path d="M 2590,1165 L 2590,1055" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="1640" y="1120" font-size="27" font-weight="500" fill="#16877A" text-anchor="start">数据解析与时间对齐</text>
+<rect x="1120" y="1655" width="2020" height="420" rx="28" fill="#E9F3FF" stroke="#90BFF0" stroke-width="2.5"/>
+<text x="1152" y="1711" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">Python 本地服务</text>
+<g class="module-card" data-title="桌面集成">
+<rect x="1155" y="1750" width="610" height="275" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1183" y="1794" font-size="32" font-weight="650" fill="#102B45" text-anchor="start">桌面集成</text>
+<text x="1183" y="1837" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">本地页面服务</text>
+<text x="1183" y="1871" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">布局 / 文件 / 缓存</text>
+<text x="1183" y="1905" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">应用更新 · 动作事件</text>
+</g>
+<g class="module-card" data-title="连接管理">
+<rect x="1810" y="1750" width="610" height="275" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1838" y="1794" font-size="32" font-weight="650" fill="#102B45" text-anchor="start">连接管理</text>
+<text x="1838" y="1837" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">SSH 会话与隧道</text>
+<text x="1838" y="1871" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">FDI Web 接入</text>
+<text x="1838" y="1905" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">机器人管理入口</text>
+</g>
+<g class="module-card" data-title="控制桥接">
+<rect x="2465" y="1750" width="640" height="275" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2493" y="1794" font-size="32" font-weight="650" fill="#102B45" text-anchor="start">控制桥接</text>
+<text x="2493" y="1837" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">控制请求 / 结果</text>
+<text x="2493" y="1871" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">远端 Python 适配</text>
+<text x="2493" y="1905" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">FRS SDK 调用</text>
+</g>
+<path d="M 2115,1655 L 2115,1585 L 2590,1585 L 2590,1460" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="2160" y="1560" font-size="27" font-weight="500" fill="#16877A" text-anchor="start">HTTP 数据流 / SSE</text>
+<path d="M 3140,490 L 3170,490 L 3170,1590 L 2785,1590 L 2785,1655" fill="none" stroke="#2C6BCC" stroke-width="3" stroke-linejoin="round" marker-end="url(#blue)"/>
+<text x="3110" y="1548" font-size="27" font-weight="500" fill="#2C6BCC" text-anchor="end">HTTP 控制请求</text>
+<rect x="60" y="1655" width="930" height="420" rx="28" fill="#F4EBFF" stroke="#BA9AE8" stroke-width="2.5"/>
+<text x="92" y="1711" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">本地数据与工程</text>
+<g class="module-card" data-title="录包 / 数据集">
+<rect x="95" y="1750" width="860" height="115" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="123" y="1794" font-size="32" font-weight="650" fill="#102B45" text-anchor="start">录包 / 数据集</text>
+<text x="123" y="1837" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">MCAP · Parquet · 图像</text>
+</g>
+<g class="module-card" data-title="动作 / 资源">
+<rect x="95" y="1905" width="860" height="115" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="123" y="1949" font-size="32" font-weight="650" fill="#102B45" text-anchor="start">动作 / 资源</text>
+<text x="123" y="1992" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">动作 JSON · 模型 · 布局</text>
+</g>
+<path d="M 525,1655 L 525,1545 L 605,1545 L 605,1460" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<path d="M 525,1545 L 1595,1545 L 1595,1460" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="810" y="1590" font-size="26" font-weight="500" fill="#16877A" text-anchor="start">导入 / 导出</text>
+<rect x="1120" y="2220" width="2020" height="400" rx="28" fill="#FFF1E8" stroke="#F0AD70" stroke-width="2.5" stroke-dasharray="12 9"/>
+<text x="1152" y="2276" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">机器人 / 台架</text>
+<g class="module-card" data-title="FDI / FDT 接口">
+<rect x="1155" y="2320" width="930" height="235" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1183" y="2364" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">FDI / FDT 接口</text>
+<text x="1183" y="2407" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">Topic 实时数据 · 录制与文件管理</text>
+<text x="1183" y="2441" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">FDI 采集 / 录制服务</text>
+</g>
+<g class="module-card" data-title="FRS / 系统运行时">
+<rect x="2140" y="2320" width="965" height="235" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2168" y="2364" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">FRS / 系统运行时</text>
+<text x="2168" y="2407" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">二次开发 SDK · Atom / 控制接口</text>
+<text x="2168" y="2441" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">运动控制 · FHM 仿真 · 系统模块</text>
+</g>
+<path d="M 1620,2220 L 1620,2145 L 2115,2145 L 2115,2075" fill="none" stroke="#16877A" stroke-width="3" stroke-linejoin="round" marker-end="url(#data)"/>
+<text x="1590" y="2189" font-size="27" font-weight="500" fill="#16877A" text-anchor="end">实时数据 / 文件</text>
+<path d="M 2785,2075 L 2785,2220" fill="none" stroke="#2C6BCC" stroke-width="3" stroke-linejoin="round" marker-end="url(#blue)" marker-start="url(#blue-start)"/>
+<text x="2820" y="2168" font-size="26" font-weight="500" fill="#2C6BCC" text-anchor="start">SSH · 请求 / 结果</text>
+<rect x="60" y="2220" width="930" height="400" rx="28" fill="#F3F6F9" stroke="#A6B7C7" stroke-width="2.5"/>
+<text x="92" y="2276" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">Studio / 外部工具</text>
+<g class="module-card" data-title="动作事件接口">
+<rect x="95" y="2320" width="860" height="235" rx="17" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="123" y="2364" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">动作事件接口</text>
+<text x="123" y="2407" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">控制帧 · 动作序列</text>
+<text x="123" y="2441" font-size="28" font-weight="400" fill="#405F79" text-anchor="start">实时推送</text>
+</g>
+<path d="M 990,2425 L 1050,2425 L 1050,1885 L 1155,1885" fill="none" stroke="#B87534" stroke-width="3" stroke-linejoin="round" marker-end="url(#sdk)"/>
+</svg>

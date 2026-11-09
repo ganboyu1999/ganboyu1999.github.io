@@ -1,0 +1,10 @@
+{
+  "exit_state": "PdStandStanding",
+  "controller": {
+    "id": "tutorial_hold",
+    "simulation_only": true
+  },
+  "runtime": {
+    "library": "libtutorial_hold.so"
+  }
+}

@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.20)
+project(base_policy LANGUAGES CXX)
+
+find_package(frs CONFIG REQUIRED)
+add_library(base_policy SHARED src/base_policy.cpp src/plugin.cpp)
+target_compile_features(base_policy PRIVATE cxx_std_17)
+target_compile_options(base_policy PRIVATE -Wall -Wextra -Wpedantic)
+target_include_directories(base_policy PRIVATE include)
+target_link_libraries(base_policy PRIVATE frs::controller_module)
+file(READ "${CMAKE_CURRENT_SOURCE_DIR}/controller.json" manifest)
+string(REPLACE "libfrs_base_policy.so" "${CMAKE_SHARED_LIBRARY_PREFIX}base_policy${CMAKE_SHARED_LIBRARY_SUFFIX}" manifest "${manifest}")
+file(GENERATE OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/controller.json" CONTENT "${manifest}")

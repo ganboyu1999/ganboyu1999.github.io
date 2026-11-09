@@ -1,0 +1,312 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3200" height="2510" viewBox="0 0 3200 2510" role="img" aria-labelledby="title desc">
+<title id="title">FourierOS 1.x LTS 统一架构</title>
+<desc id="desc">FourierOS 整体软件架构。L5 业务应用、L4 编排层、L3 算法模块、L2 系统模块、L1 RT 层、L0 硬件设备。L3 分为原子能力和插件库；Controller 与 Aurora 并列位于 L2，grmonitor 与 FDI 归入 L2 观测与数据模块。右侧为二次开发 SDK，开放 L1 至 L4 API。各模块保留核心职责与接口说明。</desc>
+<style>text{font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif}</style><defs><filter id="shadow" x="-8%" y="-12%" width="120%" height="140%"><feDropShadow dx="3" dy="7" stdDeviation="5" flood-color="#18344B" flood-opacity="0.18"/></filter>
+<marker id="blue" markerWidth="15" markerHeight="15" refX="14" refY="7.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L15,7.5 L0,15 Z" fill="#2C6BCC"/></marker>
+<marker id="blue-start" markerWidth="15" markerHeight="15" refX="1" refY="7.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M15,0 L0,7.5 L15,15 Z" fill="#2C6BCC"/></marker>
+<marker id="line" markerWidth="15" markerHeight="15" refX="14" refY="7.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L15,7.5 L0,15 Z" fill="#708DA7"/></marker>
+<marker id="line-start" markerWidth="15" markerHeight="15" refX="1" refY="7.5" markerUnits="userSpaceOnUse" orient="auto"><path d="M15,0 L0,7.5 L15,15 Z" fill="#708DA7"/></marker>
+</defs>
+<rect x="0" y="0" width="3200" height="2510" rx="0" fill="#F2F7FC" stroke="none" stroke-width="2"/>
+<rect x="0" y="0" width="3200" height="165" rx="14" fill="#11395E" stroke="none" stroke-width="2"/>
+<text x="65" y="103" font-size="58" font-weight="700" fill="white" text-anchor="start">FourierOS 1.x LTS 统一架构</text>
+<rect x="40" y="195" width="2420" height="2275" rx="58" fill="white" stroke="#5F809B" stroke-width="3.5"/>
+<rect x="70" y="225" width="2360" height="60" rx="7" fill="#E7EEF5" stroke="none" stroke-width="2"/>
+<text x="102" y="266" font-size="37" font-weight="650" fill="#102B45" text-anchor="start">FourierOS 1.x LTS 软件系统全栈</text>
+<rect x="2560" y="195" width="600" height="2275" rx="38" fill="#EEF6FF" stroke="#2C6BCC" stroke-width="3.5"/>
+<text x="2608" y="282" font-size="43" font-weight="700" fill="#123E6B" text-anchor="start">二次开发 SDK</text>
+<text x="2610" y="345" font-size="28" font-weight="500" fill="#405F79" text-anchor="start">C++ / Python / WEB</text>
+<text x="2610" y="388" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">对外开放 L1–L4 API</text>
+<text x="2610" y="429" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">统一的二次开发接口</text>
+<g data-layer="L5">
+<rect x="65" y="310" width="2370" height="210" rx="24" fill="#F4EBFF" stroke="#BA9AE8" stroke-width="2.5"/>
+<rect x="65" y="310" width="170" height="210" rx="23" fill="#DCC8FF" stroke="none" stroke-width="2"/>
+<text x="150" y="403.0" font-size="49" font-weight="700" fill="#102B45" text-anchor="middle">L5</text>
+<text x="150" y="453.0" font-size="28" font-weight="600" fill="#405F79" text-anchor="middle">业务应用</text>
+</g>
+<g data-layer="L4">
+<rect x="65" y="540" width="2370" height="230" rx="24" fill="#E9F3FF" stroke="#90BFF0" stroke-width="2.5"/>
+<rect x="65" y="540" width="170" height="230" rx="23" fill="#B6D7FF" stroke="none" stroke-width="2"/>
+<text x="150" y="643.0" font-size="49" font-weight="700" fill="#102B45" text-anchor="middle">L4</text>
+<text x="150" y="693.0" font-size="28" font-weight="600" fill="#405F79" text-anchor="middle">编排层</text>
+</g>
+<g data-layer="L3">
+<rect x="65" y="790" width="2370" height="500" rx="24" fill="#E9FAF5" stroke="#73D1AE" stroke-width="2.5"/>
+<rect x="65" y="790" width="170" height="500" rx="23" fill="#9CEBCE" stroke="none" stroke-width="2"/>
+<text x="150" y="1028.0" font-size="49" font-weight="700" fill="#102B45" text-anchor="middle">L3</text>
+<text x="150" y="1078.0" font-size="28" font-weight="600" fill="#405F79" text-anchor="middle">算法模块</text>
+</g>
+<g data-layer="L2">
+<rect x="65" y="1310" width="2370" height="600" rx="24" fill="#FFF1E8" stroke="#F0AD70" stroke-width="2.5"/>
+<rect x="65" y="1310" width="170" height="600" rx="23" fill="#FFD29E" stroke="none" stroke-width="2"/>
+<text x="150" y="1598.0" font-size="49" font-weight="700" fill="#102B45" text-anchor="middle">L2</text>
+<text x="150" y="1648.0" font-size="28" font-weight="600" fill="#405F79" text-anchor="middle">系统模块</text>
+</g>
+<g data-layer="L1">
+<rect x="65" y="1930" width="2370" height="300" rx="24" fill="#FFF9E9" stroke="#E8C453" stroke-width="2.5"/>
+<rect x="65" y="1930" width="170" height="300" rx="23" fill="#FFE58B" stroke="none" stroke-width="2"/>
+<text x="150" y="2068.0" font-size="49" font-weight="700" fill="#102B45" text-anchor="middle">L1</text>
+<text x="150" y="2118.0" font-size="28" font-weight="600" fill="#405F79" text-anchor="middle">RT 层</text>
+</g>
+<g data-layer="L0">
+<rect x="65" y="2250" width="2370" height="190" rx="24" fill="#EAF0F5" stroke="#A6B7C7" stroke-width="2.5"/>
+<rect x="65" y="2250" width="170" height="190" rx="23" fill="#C8D5E1" stroke="none" stroke-width="2"/>
+<text x="150" y="2333.0" font-size="49" font-weight="700" fill="#102B45" text-anchor="middle">L0</text>
+<text x="150" y="2383.0" font-size="28" font-weight="600" fill="#405F79" text-anchor="middle">硬件设备</text>
+</g>
+<g class="module-card" data-title="业务 APP">
+<rect x="275" y="340" width="680" height="150" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="301" y="383" font-size="35" font-weight="650" fill="#102B45" text-anchor="start">业务 APP</text>
+<text x="301" y="424" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">交互应用 · 行业业务</text>
+<text x="301" y="460" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">通过公开 API 使用 OS 能力</text>
+</g>
+<g class="module-card" data-title="Agent OS">
+<rect x="995" y="340" width="680" height="150" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1021" y="383" font-size="35" font-weight="650" fill="#102B45" text-anchor="start">Agent OS</text>
+<text x="1021" y="424" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">Agent runtime · 工具与上下文</text>
+<text x="1021" y="460" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">通过契约提交任务，不直连 HAL / 运动</text>
+</g>
+<g class="module-card" data-title="客户集成 APP">
+<rect x="1715" y="340" width="680" height="150" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1741" y="383" font-size="35" font-weight="650" fill="#102B45" text-anchor="start">客户集成 APP</text>
+<text x="1741" y="424" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">客户二次开发应用</text>
+<text x="1741" y="460" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">版本、契约与权限约束</text>
+</g>
+<g class="module-card" data-title="Gateway">
+<rect x="275" y="570" width="680" height="170" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="301" y="613" font-size="35" font-weight="650" fill="#102B45" text-anchor="start">Gateway</text>
+<text x="301" y="654" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">HTTP / WebSocket 网关</text>
+<text x="301" y="690" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">契约投影与业务适配</text>
+</g>
+<g class="module-card" data-title="TSO / Workflow">
+<rect x="995" y="570" width="680" height="170" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1021" y="613" font-size="35" font-weight="650" fill="#102B45" text-anchor="start">TSO / Workflow</text>
+<text x="1021" y="654" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">Workflow engine · 可视化 DAG</text>
+<text x="1021" y="688" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">任务流 / 原语编排 · 静态校验</text>
+<text x="1021" y="722" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">抢占 / 排队 / 暂停恢复</text>
+</g>
+<g class="module-card" data-title="grstate">
+<rect x="1715" y="570" width="680" height="170" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1741" y="613" font-size="35" font-weight="650" fill="#102B45" text-anchor="start">grstate</text>
+<text x="1741" y="654" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">系统状态 / 任务状态</text>
+<text x="1741" y="690" font-size="27" font-weight="400" fill="#405F79" text-anchor="start">状态聚合与对外投影</text>
+</g>
+<rect x="265" y="815" width="1330" height="450" rx="18" fill="#F5FFFA" stroke="#A1DCC7" stroke-width="2"/>
+<rect x="1620" y="815" width="785" height="450" rx="18" fill="#F5FFFA" stroke="#A1DCC7" stroke-width="2"/>
+<text x="290" y="858" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">原子能力 / Atom</text>
+<text x="1645" y="858" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">插件库 / .so</text>
+<g class="module-card" data-title="抓取">
+<rect x="290" y="885" width="405" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="312" y="928" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">抓取</text>
+<text x="312" y="969" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">目标抓取与放置</text>
+<text x="312" y="1001" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">抓取规划与执行</text>
+</g>
+<g class="module-card" data-title="操作">
+<rect x="720" y="885" width="405" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="742" y="928" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">操作</text>
+<text x="742" y="969" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">操作规划与执行</text>
+<text x="742" y="1001" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">任务目标与动作组合</text>
+</g>
+<g class="module-card" data-title="Navi">
+<rect x="1150" y="885" width="405" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1172" y="928" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">Navi</text>
+<text x="1172" y="969" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">导航 · 定位 · SLAM</text>
+<text x="1172" y="1001" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">地图构建与管理</text>
+</g>
+<g class="module-card" data-title="VLA">
+<rect x="290" y="1070" width="405" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="312" y="1113" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">VLA</text>
+<text x="312" y="1154" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">视觉 / 语言 / 动作模型</text>
+<text x="312" y="1186" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">模型推理与动作生成</text>
+</g>
+<g class="module-card" data-title="MotionBank">
+<rect x="720" y="1070" width="405" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="742" y="1113" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">MotionBank</text>
+<text x="742" y="1154" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">动作库编排与执行</text>
+<text x="742" y="1186" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">/planner/motionbank/task</text>
+</g>
+<g class="module-card" data-title="…">
+<rect x="1150" y="1070" width="405" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1172" y="1113" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">…</text>
+<text x="1172" y="1154" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">更多原子能力</text>
+</g>
+<g class="module-card" data-title="MoveTools">
+<rect x="1645" y="885" width="350" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1667" y="928" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">MoveTools</text>
+<text x="1667" y="969" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">运动规划 · IK</text>
+<text x="1667" y="1001" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">轨迹生成与跟踪</text>
+</g>
+<g class="module-card" data-title="Infra">
+<rect x="2020" y="885" width="350" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2042" y="928" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">Infra</text>
+<text x="2042" y="969" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">推理 Runner</text>
+<text x="2042" y="1001" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">多后端模型执行</text>
+</g>
+<g class="module-card" data-title="close_loop">
+<rect x="1645" y="1070" width="350" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1667" y="1113" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">close_loop</text>
+<text x="1667" y="1154" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">闭环算法模块</text>
+<text x="1667" y="1186" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">.so 动态库集成</text>
+</g>
+<g class="module-card" data-title="…">
+<rect x="2020" y="1070" width="350" height="165" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2042" y="1113" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">…</text>
+<text x="2042" y="1154" font-size="24" font-weight="400" fill="#405F79" text-anchor="start">更多算法插件</text>
+</g>
+<text x="275" y="1357" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">控制模块</text>
+<text x="1320" y="1357" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">观测与数据</text>
+<g class="module-card" data-title="Controller">
+<rect x="275" y="1385" width="485" height="190" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="301" y="1428" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">Controller</text>
+<text x="301" y="1469" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">控制器插件与独立进程</text>
+<text x="301" y="1503" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">状态输入与关节命令输出</text>
+<text x="301" y="1537" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">控制权管理与受控发布</text>
+</g>
+<g class="module-card" data-title="Aurora">
+<rect x="785" y="1385" width="485" height="190" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="811" y="1428" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">Aurora</text>
+<text x="811" y="1469" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">运动控制能力</text>
+<text x="811" y="1503" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">/motion_ctrl/aurora/**</text>
+</g>
+<g class="module-card" data-title="grmonitor">
+<rect x="1320" y="1385" width="515" height="190" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1346" y="1428" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">grmonitor</text>
+<text x="1346" y="1469" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">硬件、软件与能力观测</text>
+<text x="1346" y="1503" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">进程 / 任务 / Topic 状态</text>
+<text x="1346" y="1537" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">事件与指标监测</text>
+</g>
+<g class="module-card" data-title="FDI">
+<rect x="1860" y="1385" width="535" height="190" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1886" y="1428" font-size="34" font-weight="650" fill="#102B45" text-anchor="start">FDI</text>
+<text x="1886" y="1469" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">DDS / ROS2 数据采集</text>
+<text x="1886" y="1503" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">MCAP 录制与数据归档</text>
+<text x="1886" y="1537" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">Topic 发现与实时数据流</text>
+</g>
+<rect x="275" y="1645" width="2120" height="230" rx="18" fill="#FFF9F3" stroke="#E3C5AA" stroke-width="2"/>
+<text x="300" y="1682" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">HAL</text>
+<g class="module-card" data-title="Hardware">
+<rect x="300" y="1700" width="500" height="160" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="324" y="1743" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">Hardware</text>
+<text x="324" y="1784" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">fourier_actuator 动态库</text>
+<text x="324" y="1811" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">电机 / 控制组 / 整机抽象</text>
+<text x="324" y="1838" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">ActuatorCore 执行器服务</text>
+</g>
+<g class="module-card" data-title="grsensor">
+<rect x="825" y="1700" width="500" height="160" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="849" y="1743" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">grsensor</text>
+<text x="849" y="1784" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">IMU · Camera · LiDAR</text>
+<text x="849" y="1811" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">wrench · body state</text>
+<text x="849" y="1838" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">/hal/sensor/**</text>
+</g>
+<g class="module-card" data-title="grpower">
+<rect x="1350" y="1700" width="500" height="160" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1374" y="1743" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">grpower</text>
+<text x="1374" y="1784" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">Battery / BMS</text>
+<text x="1374" y="1811" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">电源状态与事件</text>
+<text x="1374" y="1838" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">/hal/power/**</text>
+</g>
+<g class="module-card" data-title="grmedia">
+<rect x="1875" y="1700" width="500" height="160" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1899" y="1743" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">grmedia</text>
+<text x="1899" y="1784" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">mic · speaker · LED</text>
+<text x="1899" y="1811" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">endeffector / dexhand</text>
+<text x="1899" y="1838" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">/hal/media/**</text>
+</g>
+<path d="M517,1575 L517,1645" fill="none" stroke="#708DA7" stroke-width="3" marker-end="url(#line)" marker-start="url(#line-start)"/>
+<text x="543" y="1620" font-size="22" font-weight="500" fill="#405F79" text-anchor="start">命令 / 状态</text>
+<path d="M1027,1575 L1027,1645" fill="none" stroke="#708DA7" stroke-width="3" marker-end="url(#line)" marker-start="url(#line-start)"/>
+<text x="1053" y="1620" font-size="22" font-weight="500" fill="#405F79" text-anchor="start">命令 / 状态</text>
+<g class="module-card" data-title="FRS RT">
+<rect x="275" y="1970" width="515" height="220" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="299" y="2013" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">FRS RT</text>
+<text x="299" y="2054" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">运行与通信支撑</text>
+<text x="299" y="2086" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">共享内存 · 进程状态</text>
+<text x="299" y="2118" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">生命周期与日志</text>
+</g>
+<g class="module-card" data-title="fourierdds / / fourierddspy">
+<rect x="810" y="1970" width="515" height="220" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="834" y="2013" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">fourierdds /</text>
+<text x="834" y="2048" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">fourierddspy</text>
+<text x="834" y="2089" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">Fast DDS · Discovery</text>
+<text x="834" y="2121" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">QoS · Loan / DataSharing</text>
+<text x="834" y="2153" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">C++ / Python 绑定</text>
+</g>
+<g class="module-card" data-title="fourierrpc">
+<rect x="1345" y="1970" width="515" height="220" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1369" y="2013" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">fourierrpc</text>
+<text x="1369" y="2054" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">生命周期管理</text>
+<text x="1369" y="2086" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">进程控制 / 健康状态</text>
+<text x="1369" y="2118" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">机器人系统管理</text>
+</g>
+<g class="module-card" data-title="grinterface / (fourierddsmsg)">
+<rect x="1880" y="1970" width="515" height="220" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1904" y="2013" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">grinterface</text>
+<text x="1904" y="2048" font-size="31" font-weight="650" fill="#102B45" text-anchor="start">(fourierddsmsg)</text>
+<text x="1904" y="2089" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">gr_interface_v1_0 · IDL</text>
+<text x="1904" y="2121" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">Topic / Service / Action</text>
+<text x="1904" y="2153" font-size="25" font-weight="400" fill="#405F79" text-anchor="start">版本、错误码、QoS 权威源</text>
+</g>
+<g class="module-card" data-title="总线与板卡">
+<rect x="275" y="2275" width="408" height="140" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="298" y="2318" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">总线与板卡</text>
+<text x="298" y="2359" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">EtherCAT · CAN · 串口</text>
+<text x="298" y="2390" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">板卡 / 总线 / 时间同步</text>
+</g>
+<g class="module-card" data-title="执行器">
+<rect x="703" y="2275" width="408" height="140" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="726" y="2318" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">执行器</text>
+<text x="726" y="2359" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">电机 · 关节 · 灵巧手</text>
+<text x="726" y="2390" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">执行器 / 末端</text>
+</g>
+<g class="module-card" data-title="传感器">
+<rect x="1131" y="2275" width="408" height="140" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1154" y="2318" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">传感器</text>
+<text x="1154" y="2359" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">Camera · LiDAR · IMU</text>
+<text x="1154" y="2390" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">Wrench / 触摸传感器</text>
+</g>
+<g class="module-card" data-title="电池与 BMS">
+<rect x="1559" y="2275" width="408" height="140" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="1582" y="2318" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">电池与 BMS</text>
+<text x="1582" y="2359" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">电池组 / 电源管理设备</text>
+</g>
+<g class="module-card" data-title="多媒体设备">
+<rect x="1987" y="2275" width="408" height="140" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2010" y="2318" font-size="30" font-weight="650" fill="#102B45" text-anchor="start">多媒体设备</text>
+<text x="2010" y="2359" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">Mic · Speaker · LED</text>
+<text x="2010" y="2390" font-size="23" font-weight="400" fill="#405F79" text-anchor="start">显示设备</text>
+</g>
+<g class="module-card" data-title="L4 API">
+<rect x="2600" y="570" width="520" height="170" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2628" y="613" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">L4 API</text>
+<text x="2628" y="654" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">Gateway · TSO · grstate</text>
+<text x="2628" y="691" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">系统编排、网关与状态接口</text>
+</g>
+<path d="M2435,655 L2600,655" fill="none" stroke="#2C6BCC" stroke-width="3" marker-end="url(#blue)" stroke-dasharray="14 10"/>
+<g class="module-card" data-title="L3 API">
+<rect x="2600" y="930" width="520" height="215" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2628" y="973" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">L3 API</text>
+<text x="2628" y="1014" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">原子能力 / Atom · 插件库</text>
+<text x="2628" y="1051" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">标准能力二次开发</text>
+<text x="2628" y="1088" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">用户算法模块与 .so 扩展</text>
+</g>
+<path d="M2435,1037 L2600,1037" fill="none" stroke="#2C6BCC" stroke-width="3" marker-end="url(#blue)" stroke-dasharray="14 10"/>
+<g class="module-card" data-title="L2 API">
+<rect x="2600" y="1430" width="520" height="355" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2628" y="1473" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">L2 API</text>
+<text x="2628" y="1514" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">Controller · Aurora · HAL</text>
+<text x="2628" y="1551" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">grmonitor · FDI</text>
+<text x="2628" y="1588" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">系统模块与设备接口</text>
+<text x="2628" y="1625" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">执行器 / 传感器：只读</text>
+<text x="2628" y="1662" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">grpower / grmedia：读写</text>
+<text x="2628" y="1699" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">按权限与安全策略开放</text>
+</g>
+<path d="M2435,1607 L2600,1607" fill="none" stroke="#2C6BCC" stroke-width="3" marker-end="url(#blue)" stroke-dasharray="14 10"/>
+<g class="module-card" data-title="L1 API">
+<rect x="2600" y="1970" width="520" height="220" rx="15" fill="white" stroke="#C2D2E3" stroke-width="2" filter="url(#shadow)"/>
+<text x="2628" y="2013" font-size="36" font-weight="650" fill="#102B45" text-anchor="start">L1 API</text>
+<text x="2628" y="2054" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">RT / DDS / ddspy</text>
+<text x="2628" y="2091" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">开放系统 Interface</text>
+<text x="2628" y="2128" font-size="26" font-weight="400" fill="#405F79" text-anchor="start">支持自定义接口与消息</text>
+</g>
+<path d="M2435,2080 L2600,2080" fill="none" stroke="#2C6BCC" stroke-width="3" marker-end="url(#blue)" stroke-dasharray="14 10"/>
+</svg>

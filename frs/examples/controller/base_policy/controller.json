@@ -1,0 +1,11 @@
+{
+  "exit_state": "PdStandStanding",
+  "controller": {
+    "id": "base_policy",
+    "control_mode": "cmd",
+    "simulation_only": false
+  },
+  "runtime": {
+    "library": "libfrs_base_policy.so"
+  }
+}

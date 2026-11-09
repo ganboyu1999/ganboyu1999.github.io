@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fourier Robot Service 开发者指南：Python/C++ SDK、Topic、Atom、控制器和 FHM 仿真。">
+  <title>FRS 开发者文档</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=20261110">
+  <script defer src="content.js?v=20261110"></script>
+  <script defer src="app.js?v=20261110"></script>
+  <script defer src="editor-config.js"></script>
+  <script defer src="editor.js"></script>
+  <link rel="canonical" href="https://ganboyu1999.github.io/frs/">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <header class="site-header">
+    <div class="topbar">
+      <a class="brand" href="#overview"><img src="assets/fourier-logo.png" alt="傅利叶"></a>
+      <a class="header-label" href="#overview">开发者文档</a>
+      <div class="header-actions">
+        <a class="source-download" href="downloads/frs-examples.zip" download title="下载 FRS 开发示例"><span class="download-verb">下载</span>开发示例</a>
+        <div class="language-picker">
+          <button id="language-toggle" class="language-toggle" type="button" aria-label="切换语言，当前为简体中文" aria-controls="language-menu" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3c-5 5-5 13 0 18M12 3c5 5 5 13 0 18"></path></svg>
+            <span>简体中文</span><span class="language-arrow" aria-hidden="true"></span>
+          </button>
+          <div id="language-menu" class="language-menu" hidden>
+            <button type="button" lang="zh-CN" aria-pressed="true">简体中文<span aria-hidden="true">✓</span></button>
+          </div>
+        </div>
+        <div class="search-box">
+          <label class="sr-only" for="search">搜索文档</label>
+          <span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="查找文档" autocomplete="off" aria-controls="search-results" aria-expanded="false">
+          <div id="search-results" class="search-results" hidden></div>
+        </div>
+      </div>
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-controls="sidebar" aria-expanded="false">目录</button>
+    </div>
+    <div class="product-bar">
+      <nav id="section-navigation" aria-label="文档分类"></nav>
+    </div>
+  </header>
+  <div class="layout">
+    <aside id="sidebar" class="sidebar">
+      <nav id="navigation" aria-label="文档目录"></nav>
+    </aside>
+    <main id="main" tabindex="-1">
+      <div id="editor-toolbar" class="editor-toolbar" hidden aria-label="正文编辑工具">
+        <div class="format-tools">
+          <button type="button" data-format="bold" aria-label="加粗"><b>加粗</b></button>
+          <button type="button" data-format="italic" aria-label="斜体"><i>斜体</i></button>
+          <button type="button" data-format="insertUnorderedList">列表</button>
+          <button type="button" id="editor-link">链接</button>
+          <button type="button" id="editor-code">代码</button>
+          <button type="button" id="editor-image">插图</button>
+        </div>
+        <div class="save-tools">
+          <span id="editor-state" role="status" aria-live="polite"></span>
+          <button type="button" id="editor-cancel">取消</button>
+          <button type="button" id="editor-save" class="primary-button">保存</button>
+        </div>
+      </div>
+      <div id="lesson"></div><nav id="pagination" aria-label="相邻文档"></nav>
+    </main>
+    <aside class="toc"><div class="toc-title">本文内容</div><nav id="toc-links" aria-label="本文内容"></nav></aside>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <dialog id="editor-link-dialog" class="editor-dialog">
+    <form method="dialog">
+      <h2>插入链接</h2>
+      <label for="editor-link-url">链接地址</label><input id="editor-link-url" type="text" required placeholder="https://">
+      <div class="dialog-actions"><button value="cancel" formnovalidate>取消</button><button value="insert" class="primary-button">插入</button></div>
+    </form>
+  </dialog>
+  <dialog id="editor-image-dialog" class="editor-dialog">
+    <form method="dialog">
+      <h2>插入图片</h2>
+      <label for="editor-image-file">图片文件</label><input id="editor-image-file" type="file" accept="image/png,image/jpeg,image/gif,image/webp" required>
+      <label for="editor-image-caption">图注</label><input id="editor-image-caption" type="text">
+      <div class="dialog-actions"><button value="cancel" formnovalidate>取消</button><button value="insert" class="primary-button">插入</button></div>
+    </form>
+  </dialog>
+  <noscript>此文档需要 JavaScript。</noscript>
+</body>
+</html>
