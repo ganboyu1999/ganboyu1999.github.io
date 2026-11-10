@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2100" height="1550" viewBox="0 0 2100 1550" role="img" aria-labelledby="title desc">
+<title id="title">FDI 筛选器架构</title>
+<desc id="desc">基于 FDI 当前源码的筛选器架构。内置 C++ 筛选器通过 REGISTER_FILTER 注册到 FilterRegistry，由 YAML 启用后装配为 FilterChain。消息进入 evaluate 时按需共享解码，逐一调用所有筛选器。录制型筛选器按 OR 合并决策，监测型筛选器不参与录制门控，而是向 EventQueue 发送异步事件。主循环约每 200 毫秒调用 onTick 并由 Recorder 消费事件。事件数据经独立采样策略进入前滚缓存及活动窗口，事件触发后形成事件包。系统日志、CPU 和转储监测在同一 fdi_onboard 进程内通过定时检查或后台线程接入。录制决策器的存在决定是否自动开启连续录制。</desc>
+<style>text{font-family:"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif}</style><defs>
+<marker id="ink" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#15334F"/></marker>
+<marker id="muted" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#526C84"/></marker>
+<marker id="blue" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#306DB4"/></marker>
+<marker id="green" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#147E72"/></marker>
+<marker id="amber" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#B46F2E"/></marker>
+<marker id="line" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#7791A6"/></marker>
+<marker id="purple" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L12,6 L0,12 Z" fill="#8061B0"/></marker>
+</defs>
+<rect x="0" y="0" width="2100" height="1550" rx="0" fill="#F3F7FC" stroke="none" stroke-width="2"/>
+<rect x="0" y="0" width="2100" height="105" rx="0" fill="#11395E" stroke="none" stroke-width="2"/>
+<text x="55" y="71" font-size="46" font-weight="700" fill="white" text-anchor="start">FDI 筛选器架构</text>
+<rect x="40" y="135" width="2020" height="1375" rx="25" fill="white" stroke="#90A7BF" stroke-width="2" stroke-dasharray="10 7"/>
+<text x="72" y="178" font-size="30" font-weight="650" fill="#15334F" text-anchor="start">fdi_onboard</text>
+<rect x="70" y="205" width="1960" height="130" rx="18" fill="#F4EEFB" stroke="#C4B1DF" stroke-width="2"/>
+<g data-card="YAML 配置">
+<rect x="90" y="220" width="550" height="100" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="114" y="263" font-size="28" font-weight="650" fill="#15334F" text-anchor="start">YAML 配置</text>
+<text x="114" y="303" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">启用项 · Topic 范围 · 检测参数</text>
+</g>
+<g data-card="FilterRegistry">
+<rect x="710" y="220" width="690" height="100" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="734" y="263" font-size="28" font-weight="650" fill="#15334F" text-anchor="start">FilterRegistry</text>
+<text x="734" y="303" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">REGISTER_FILTER → factory() → chain.add()</text>
+</g>
+<g data-card="统一接口 · FilterBase">
+<rect x="1470" y="220" width="540" height="100" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="1494" y="263" font-size="28" font-weight="650" fill="#15334F" text-anchor="start">统一接口 · FilterBase</text>
+<text x="1494" y="303" font-size="22" font-weight="400" fill="#526C84" text-anchor="start">onStart · shouldRecord · onTick · onStop</text>
+</g>
+<path d="M 640,270 L 710,270" fill="none" stroke="#8061B0" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#purple)"/>
+<path d="M 1400,270 L 1470,270" fill="none" stroke="#8061B0" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#purple)"/>
+<rect x="570" y="390" width="1080" height="740" rx="22" fill="#EEF5FE" stroke="#9ABDE5" stroke-width="2"/>
+<text x="600" y="435" font-size="32" font-weight="700" fill="#15334F" text-anchor="start">FilterChain</text>
+<text x="1618" y="433" font-size="24" font-weight="500" fill="#526C84" text-anchor="end">顺序调用 · 决策合并</text>
+<path d="M 1055,335 L 1055,390" fill="none" stroke="#8061B0" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#purple)"/>
+<g data-card="消息分发与共享解码">
+<rect x="620" y="475" width="980" height="130" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="644" y="518" font-size="30" font-weight="650" fill="#15334F" text-anchor="start">消息分发与共享解码</text>
+<text x="644" y="558" font-size="24" font-weight="400" fill="#526C84" text-anchor="start">evaluate(msg) · requiredDecodeTopics() 汇总需求</text>
+<text x="644" y="592" font-size="24" font-weight="400" fill="#526C84" text-anchor="start">每条匹配消息解码一次，原始 CDR 与 DecodedTopic 共同传入</text>
+</g>
+<g data-card="数据监听">
+<rect x="70" y="420" width="440" height="160" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="94" y="463" font-size="30" font-weight="650" fill="#15334F" text-anchor="start">数据监听</text>
+<text x="94" y="503" font-size="24" font-weight="400" fill="#526C84" text-anchor="start">DDS / ROS2 · 按配置订阅</text>
+<text x="94" y="537" font-size="24" font-weight="400" fill="#526C84" text-anchor="start">RecordedMessage / 原始 CDR</text>
+</g>
+<path d="M 510,505 L 620,505" fill="none" stroke="#306DB4" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#blue)"/>
+<text x="565" y="488" font-size="21" font-weight="500" fill="#306DB4" text-anchor="middle">消息</text>
+<g data-card="定时驱动">
+<rect x="1720" y="420" width="310" height="160" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="1744" y="463" font-size="29" font-weight="650" fill="#15334F" text-anchor="start">定时驱动</text>
+<text x="1744" y="503" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">主循环 · 约 200 ms</text>
+<text x="1744" y="537" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">tickFilters → onTick</text>
+</g>
+<path d="M 1720,505 L 1650,505" fill="none" stroke="#7791A6" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#line)"/>
+<path d="M 1110,605 L 1110,655" fill="none" stroke="#306DB4" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1110,655 L 835,655 L 835,705" fill="none" stroke="#306DB4" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#blue)"/>
+<path d="M 1110,655 L 1355,655 L 1355,705" fill="none" stroke="#306DB4" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#blue)"/>
+<text x="1130" y="637" font-size="22" font-weight="500" fill="#306DB4" text-anchor="start">shouldRecord(msg, decoded)</text>
+<rect x="620" y="705" width="430" height="290" rx="16" fill="#F8FBFF" stroke="#9ABDE5" stroke-width="2"/>
+<text x="644" y="748" font-size="30" font-weight="650" fill="#15334F" text-anchor="start">录制型筛选器</text>
+<text x="644" y="788" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">isMonitorOnly() = false</text>
+<rect x="644" y="815" width="382" height="62" rx="10" fill="white" stroke="#D1DFEC" stroke-width="2"/>
+<text x="665" y="855" font-size="23" font-weight="500" fill="#15334F" text-anchor="start">AlwaysFilter · 全量录制</text>
+<rect x="644" y="892" width="382" height="62" rx="10" fill="white" stroke="#D1DFEC" stroke-width="2"/>
+<text x="665" y="932" font-size="23" font-weight="500" fill="#15334F" text-anchor="start">FrequencyFilter · 频率筛选</text>
+<rect x="1110" y="705" width="490" height="290" rx="16" fill="#ECF8F3" stroke="#91CBB5" stroke-width="2"/>
+<text x="1134" y="748" font-size="30" font-weight="650" fill="#15334F" text-anchor="start">监测型筛选器</text>
+<text x="1134" y="788" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">isMonitorOnly() = true</text>
+<text x="1134" y="834" font-size="24" font-weight="500" fill="#15334F" text-anchor="start">Topic 断流 · CPU 负载</text>
+<text x="1134" y="873" font-size="24" font-weight="500" fill="#15334F" text-anchor="start">崩溃 · Core / Minidump</text>
+<text x="1134" y="912" font-size="24" font-weight="500" fill="#15334F" text-anchor="start">跌倒 · 腿部异常 · 电源风险</text>
+<text x="1134" y="951" font-size="24" font-weight="500" fill="#15334F" text-anchor="start">建图完成 · …</text>
+<g data-card="系统信号">
+<rect x="1720" y="705" width="310" height="290" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="1744" y="748" font-size="29" font-weight="650" fill="#15334F" text-anchor="start">系统信号</text>
+<text x="1744" y="788" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">CPU /proc/stat</text>
+<text x="1744" y="822" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">内核与进程日志</text>
+<text x="1744" y="856" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">Core / Minidump</text>
+<text x="1744" y="890" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">定时检查 / 后台线程</text>
+</g>
+<path d="M 1720,850 L 1600,850" fill="none" stroke="#7791A6" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#line)"/>
+<path d="M 835,995 L 835,1030" fill="none" stroke="#306DB4" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#blue)"/>
+<rect x="620" y="1030" width="430" height="76" rx="12" fill="white" stroke="#9ABDE5" stroke-width="2"/>
+<text x="835" y="1062" font-size="24" font-weight="650" fill="#15334F" text-anchor="middle">OR 合并 · 任一命中即通过</text>
+<text x="835" y="1093" font-size="21" font-weight="400" fill="#526C84" text-anchor="middle">approved · trigger_names / reasons</text>
+<path d="M 1355,995 L 1355,1030" fill="none" stroke="#147E72" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#green)"/>
+<rect x="1110" y="1030" width="490" height="76" rx="12" fill="white" stroke="#91CBB5" stroke-width="2"/>
+<text x="1355" y="1062" font-size="25" font-weight="650" fill="#15334F" text-anchor="middle">EventQueue · 异步事件队列</text>
+<text x="1355" y="1093" font-size="22" font-weight="400" fill="#526C84" text-anchor="middle">事件名称 · 原因 · 时间 · 载荷</text>
+<path d="M 290,580 L 290,735" fill="none" stroke="#147E72" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#green)"/>
+<text x="315" y="662" font-size="23" font-weight="500" fill="#147E72" text-anchor="start">事件数据</text>
+<g data-card="事件数据路径">
+<rect x="70" y="735" width="440" height="205" rx="15" fill="#F1FAF6" stroke="#91CBB5" stroke-width="2"/>
+<text x="94" y="778" font-size="30" font-weight="650" fill="#15334F" text-anchor="start">事件数据路径</text>
+<text x="94" y="818" font-size="24" font-weight="400" fill="#526C84" text-anchor="start">独立采样策略</text>
+<text x="94" y="852" font-size="24" font-weight="400" fill="#526C84" text-anchor="start">前滚环形缓存</text>
+<text x="94" y="886" font-size="24" font-weight="400" fill="#526C84" text-anchor="start">活动窗口的实时数据</text>
+</g>
+<rect x="570" y="1185" width="1080" height="295" rx="22" fill="#FFF9EC" stroke="#D8BC78" stroke-width="2"/>
+<text x="600" y="1230" font-size="32" font-weight="700" fill="#15334F" text-anchor="start">Recorder</text>
+<text x="1618" y="1228" font-size="24" font-weight="500" fill="#526C84" text-anchor="end">录制与事件采集</text>
+<g data-card="连续录制">
+<rect x="620" y="1260" width="430" height="170" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="644" y="1303" font-size="29" font-weight="650" fill="#15334F" text-anchor="start">连续录制</text>
+<text x="644" y="1343" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">按 approved 写入原始 CDR</text>
+<text x="644" y="1377" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">记录命中筛选器与原因</text>
+<text x="644" y="1411" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">有录制决策器时自动开启</text>
+</g>
+<g data-card="EventCapture · 事件采集">
+<rect x="1110" y="1260" width="490" height="170" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="1134" y="1303" font-size="28" font-weight="650" fill="#15334F" text-anchor="start">EventCapture · 事件采集</text>
+<text x="1134" y="1343" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">drainEvents() → 匹配事件策略</text>
+<text x="1134" y="1377" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">前滚历史 + 触发后窗口</text>
+<text x="1134" y="1411" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">事件元数据 · 日志与转储附件</text>
+</g>
+<path d="M 835,1106 L 835,1260" fill="none" stroke="#306DB4" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#blue)"/>
+<text x="855" y="1160" font-size="22" font-weight="500" fill="#306DB4" text-anchor="start">录制决策</text>
+<path d="M 1355,1106 L 1355,1260" fill="none" stroke="#147E72" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#green)"/>
+<text x="1375" y="1160" font-size="22" font-weight="500" fill="#147E72" text-anchor="start">事件触发</text>
+<path d="M 290,940 L 290,1470 L 1355,1470 L 1355,1430" fill="none" stroke="#147E72" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#green)"/>
+<text x="750" y="1460" font-size="20" font-weight="500" fill="#147E72" text-anchor="middle">前滚数据与触发后数据</text>
+<g data-card="写入与回流">
+<rect x="1720" y="1185" width="310" height="245" rx="15" fill="white" stroke="#C6D5E3" stroke-width="2"/>
+<text x="1744" y="1228" font-size="29" font-weight="650" fill="#15334F" text-anchor="start">写入与回流</text>
+<text x="1744" y="1268" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">RecordingWriter</text>
+<text x="1744" y="1302" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">MCAP / 事件包</text>
+<text x="1744" y="1336" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">IngestAgent</text>
+<text x="1744" y="1370" font-size="23" font-weight="400" fill="#526C84" text-anchor="start">文件与事件包上传</text>
+</g>
+<path d="M 1650,1350 L 1720,1350" fill="none" stroke="#B46F2E" stroke-width="2.8" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#amber)"/>
+</svg>

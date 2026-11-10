@@ -96,6 +96,10 @@
 <li>设计统一接口、独立配置的筛选器架构，支持业务模块自行扩展，已接入 <strong>20+ 个筛选器</strong>。</li>
 <li>自动收集事件数据、日志和配置快照，支持异步上传、失败重试与重启恢复；配套文件和日志入口便于访问取证材料。</li>
 </ul>
+<figure class="project-showcase" id="filter-architecture" aria-labelledby="filter-architecture-title">
+<a class="diagram-original" href="assets/fdi-filter-architecture.svg?v=20261110" target="_blank" rel="noopener" aria-label="查看 FDI 筛选器架构原图"><img src="assets/fdi-filter-architecture.svg?v=20261110" width="2100" height="1550" loading="lazy" alt="FDI 筛选器架构：配置注册、统一调度与共享解码，以及录制决策和事件采集两条链路。"></a>
+<figcaption><div><h4 id="filter-architecture-title">FDI 筛选器架构</h4><p>统一接口与配置支持筛选器扩展，FilterChain 负责调度与共享解码。录制型筛选器决定消息留存，监测型筛选器触发事件采集，由 Recorder 汇集前后窗口数据。</p><a class="diagram-source-link" href="assets/fdi-filter-architecture.svg?v=20261110" target="_blank" rel="noopener">查看原图 <span aria-hidden="true">↗</span></a></div></figcaption>
+</figure>
 <figure class="project-showcase">
         <video class="showcase-video" controls playsinline preload="none" poster="assets/fdi-remote-files.jpg" width="1264" height="634" aria-label="远程录包与目录管理演示视频">
           <source src="assets/fdi-remote-files.mp4" type="video/mp4">
